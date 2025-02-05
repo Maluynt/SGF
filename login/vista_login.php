@@ -6,10 +6,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="estilo.css">
-=======
-    <link rel="stylesheet" type="text/css" href="login.css">
     <style>
         .input-div {
             position: relative; /* Para posicionar los iconos */
@@ -30,7 +27,6 @@
             color: #888; /* Color del icono */
         }
     </style>
->>>>>>> 6c73881ce44c3dd89301910f137d8eeb91905772
     <script>
         // Evitar que el usuario use el botón "Atrás" del navegador
         window.history.pushState(null, '', window.location.href);
@@ -59,27 +55,24 @@
     <img class="avatar" src="../img/logo_mlte.png" alt="logo de usuario"><br>
     <form method="post" action="controlador_login.php">
         <div class="input-div">
-            <!--div class="i">
+            <div class="i">
                 <i class="fas fa-user"></i>
-            </div-->
+            </div>
             <input type="text" class="input" name="usuario" placeholder="Usuario" required>
         </div>
         <div class="input-div">
-            <!--div class="i">
+            <div class="i">
                 <i class="fas fa-lock"></i>
-            </div-->
+            </div>
             <input type="password" class="input" name="password" placeholder="Contraseña" required>
             <div class="view">
                 <i class="fas fa-eye" onclick="vista()" id="verPassword"></i>
             </div>
         </div>
-<<<<<<< HEAD
-        <button name="btningresar" type="submit" value="INICIAR SECION">ENTRAR</button>
-        <a class="enlace" href="recuperar_contraseña.php">¿Olvidó su contraseña?</a>
-=======
+<button name="btningresar" type="submit" value="INICIAR SECION">ENTRAR</button>
         <button name="btningresar" type="submit">ENTRAR</button>
-        <a class="enlace" href="olvidocontraseña.php">¿Olvidó su contraseña?</a>
->>>>>>> 6c73881ce44c3dd89301910f137d8eeb91905772
+        <a class="enlace" href="recuperar_contraseña.php">¿Olvidó su contraseña?</a>
+
     </form>
 </div>
 </body>
