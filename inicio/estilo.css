@@ -1,0 +1,68 @@
+body {
+    background-color: #f8f9fa;
+  }
+  
+  .sidebar {
+    height: 100vh;
+    position: fixed;
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  .menu-item {
+    color: #dc3545;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+  }
+  
+  .menu-item:hover {
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .menu-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu {
+    background-color: #343a40;
+    border: none;
+    padding: 0;
+  }
+  
+  .dropdown-item {
+    color: #fff;
+    padding: 0.5rem 1rem;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .content-area {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  /*
+  
+  Principales cambios:
+  
+  1. Separé el código HTML y CSS en dos archivos diferentes.
+  2. Mantuve el pie de página al final de la página.
+  3. Cambié el color del header a un tono más oscuro de gris y las letras a blanco.
+  4. Hice que toda la barra lateral tenga un fondo oscuro y letras blancas.
+  5. Mejoré la funcionalidad de los menús desplegables en la barra lateral.
+  6. Marqué la selección actual en los menús desplegables.
+  
+  Espero que esta nueva versión cumpla mejor con tus requisitos. Si necesitas algo más, no dudes en hacérmelo saber.
