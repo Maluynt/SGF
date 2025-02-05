@@ -6,7 +6,31 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="estilo.css">
+=======
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <style>
+        .input-div {
+            position: relative; /* Para posicionar los iconos */
+            margin-bottom: 20px; /* Espacio entre campos */
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px 10px 10px 40px; /* Espaciado interno para evitar superposición con el icono */
+            box-sizing: border-box; /* Incluye padding en el ancho total */
+        }
+
+        .i {
+            position: absolute;
+            left: 10px; /* Espacio desde el borde izquierdo */
+            top: 50%; /* Centra verticalmente */
+            transform: translateY(-50%); /* Ajuste para centrar el icono */
+            color: #888; /* Color del icono */
+        }
+    </style>
+>>>>>>> 6c73881ce44c3dd89301910f137d8eeb91905772
     <script>
         // Evitar que el usuario use el botón "Atrás" del navegador
         window.history.pushState(null, '', window.location.href);
@@ -49,8 +73,13 @@
                 <i class="fas fa-eye" onclick="vista()" id="verPassword"></i>
             </div>
         </div>
+<<<<<<< HEAD
         <button name="btningresar" type="submit" value="INICIAR SECION">ENTRAR</button>
         <a class="enlace" href="recuperar_contraseña.php">¿Olvidó su contraseña?</a>
+=======
+        <button name="btningresar" type="submit">ENTRAR</button>
+        <a class="enlace" href="olvidocontraseña.php">¿Olvidó su contraseña?</a>
+>>>>>>> 6c73881ce44c3dd89301910f137d8eeb91905772
     </form>
 </div>
 </body>
