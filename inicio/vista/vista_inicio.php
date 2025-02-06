@@ -1,7 +1,7 @@
 <!--?php
 session_start();
 include("../conexion_bd/conexion_bd.php");
-include("ModeloUsuario.php");
+include("../modelo/ModeloUsuario.php");
 
 if (empty($_SESSION["id_usuario"])) {
     header("Location:../login/vista_login.php");
@@ -18,13 +18,13 @@ $informacionUsuario = ModeloUsuario::obtenerInformacionUsuario();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Centro de Control de Fallas</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
   <header class="bg-dark text-white p-3">
       <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
-              <img src="../img/logo_mlte.png" alt="logo del metro" class="img-fluid" style="max-width: 100px;">
+              <img src="../../img/logo_mlte.png" alt="logo del metro" class="img-fluid" style="max-width: 100px;">
               <h1 class="text-center mx-3">Centro de Control de Fallas</h1>
           </div>
           <div class="time" id="time"></div>
@@ -74,7 +74,7 @@ $informacionUsuario = ModeloUsuario::obtenerInformacionUsuario();
       </p>
       <p>C.A. Metro Los Teques</p>
   </footer>
-
+  <script src="../JS/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

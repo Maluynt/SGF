@@ -13,18 +13,18 @@ class Usuario {
     // Método para verificar las credenciales del usuario
     public function verificarCredenciales($usuario, $password) {
         // Consulta preparada para obtener los datos del usuario
-        $sql = $this->conexion->prepare("SELECT id_usuario, nombre_usuario, apellido_usuario, id_perfil, contrasena FROM usuario WHERE usuario = ?");
+        $dsn = $this->conexion->prepare("SELECT id_usuario, nombre, id_perfil, contraseña FROM usuario WHERE usuario = :usuario");
         // Vincula el parámetro de usuario a la consulta preparada
-        $sql->bind_param("s", $usuario);
+        $dsn->bind_param(":usuario", $usuario);
         // Ejecuta la consulta preparada
-        $sql->execute();
+        $dsn->execute();
         // Obtiene el resultado de la consulta
-        $resultado = $sql->get_result();
+        $resultado = $dsn->get_result();
 
         // Verifica si se encontraron datos de usuario
         if ($datos = $resultado->fetch_object()) {
             // Verifica si la contraseña proporcionada coincide con la contraseña almacenada (hasheada)
-            if (password_verify($password, $datos->contrasena)) {
+            if (password_verify($password, $datos->contraseña)) {
                 // Retorna los datos del usuario si las credenciales son válidas
                 return $datos;
             }
@@ -34,16 +34,16 @@ class Usuario {
     }
 
     // Método para registrar la acción de inicio de sesión en la tabla de bitácora
-    public function registrarLogin($nombre_personal, $apellido_personal, $accion) {
+    public function registrarLogin($nombre_personal, $accion) {
         // Obtiene la fecha y hora actual
         $fecha_hora = date('Y-m-d H:i:s');
         // Consulta SQL para insertar el registro en la bitácora
-        $log_sql = "INSERT INTO bitacora (nombre_personal, apellido_personal, fecha_hora, accion) VALUES (?, ?, ?, ?)";
+        $log_sql = "INSERT INTO bitacora (nombre_personal, fecha_hora, accion) VALUES (?, ?, ?)";
 
         // Prepara la consulta SQL
         if ($log_stmt = $this->conexion->prepare($log_sql)) {
             // Vincula los parámetros a la consulta preparada
-            $log_stmt->bind_param("ssss", $nombre_personal, $apellido_personal, $fecha_hora, $accion);
+            $log_stmt->bind_param("sss", $nombre_personal, $fecha_hora, $accion);
             // Ejecuta la consulta preparada
             $log_stmt->execute();
             // Cierra la consulta preparada

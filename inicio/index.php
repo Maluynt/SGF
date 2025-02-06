@@ -1,3 +1,3 @@
 <?php
-require_once 'ControladorInicio.php';
+require_once 'controlador/controladorInicio.php';
 ?>

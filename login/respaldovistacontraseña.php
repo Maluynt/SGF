@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-<?php include('controlador/controlador_recuperar_contraseña.php'); ?>
+<?php include('controlador_recuperar_contraseña.php');?>
     <div class="container">
         <img class="avatar" src="../img/logo_mlte.png" alt="logo de usuario">
         
-        <form method="post" action="recuperar_contraseña.php">
+        <form method="post" action="controlador_recuperar_contraseña.php">
             <div class="input-div">
                 <input class="input" type="text" placeholder="Carnet de Usuario" name="carnet_usuario" required>
             </div>
             <div class="input-div">
-                <input class="input" type="text" placeholder="Escriba su Pregunta Secreta" name="pregunta_secreta" required>
+                <input class="input" type="text" placeholder=" Escriba su Pregunta Pecreta" name="pregunta_secreta" required>
             </div>
             <div class="input-div">
-                <input class="input" type="text" placeholder="Escriba su Respuesta Secreta" name="respuesta_secreta" required>
+                <input class="input" type="text" placeholder="Escreiba su Respuesta Secreta" name="respuesta_sereta" required>
             </div>
             <div class="input-div">
                 <input class="input" type="password" placeholder="Nueva Contraseña" name="nueva_contrasena" required>
@@ -37,3 +37,4 @@
     </div>
 </body>
 </html>
+vista

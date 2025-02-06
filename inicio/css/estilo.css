@@ -54,15 +54,4 @@ body {
     bottom: 0;
     width: 100%;
   }
-  /*
-  
-  Principales cambios:
-  
-  1. Separé el código HTML y CSS en dos archivos diferentes.
-  2. Mantuve el pie de página al final de la página.
-  3. Cambié el color del header a un tono más oscuro de gris y las letras a blanco.
-  4. Hice que toda la barra lateral tenga un fondo oscuro y letras blancas.
-  5. Mejoré la funcionalidad de los menús desplegables en la barra lateral.
-  6. Marqué la selección actual en los menús desplegables.
-  
-  Espero que esta nueva versión cumpla mejor con tus requisitos. Si necesitas algo más, no dudes en hacérmelo saber.
+ 

@@ -1,4 +1,4 @@
-<?php
+<!--?php
 // Definición de la clase ModeloUsuario
 class ModeloUsuario {
     // Definición del método estático obtenerInformacionUsuario

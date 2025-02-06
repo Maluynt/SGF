@@ -1,20 +1,18 @@
 <?php
 // Inicia una nueva sesión o reanuda una existente basada en la cookie de sesión del usuario.
 session_start();
-
 // Incluye el archivo que contiene la conexión a la base de datos.
-include("../conexion_bd/conexion_bd.php");
-
+include("../../conexion_bd/conexion_bd.php");
 // Incluye el archivo que contiene la definición de la clase Modelo.
-require 'Modelo.php';
+require 'modelo/modelo.php';
 
 // Crea una instancia de la clase Usuario, pasando la conexión a la base de datos.
-$usuarioModel = new Usuario($mysqli);
+$usuarioModel = new Usuario($pdo);
 
 // Verifica si ya existe una sesión de usuario activa.
 if (isset($_SESSION['usuario'])) {
     // Si ya hay una sesión, redirige al usuario a una página específica.
-    header("Location: #"); // Debes cambiar "#" por la URL a la que deseas redirigir.
+    header("Location:../../inicio/vista/vista_inicio.php"); // Debes cambiar "#" por la URL a la que deseas redirigir.
     exit(); // Detiene la ejecución del script para asegurar la redirección.
 }
 
@@ -30,7 +28,7 @@ if (!empty($_POST["btningresar"])) {
         // Muestra una alerta si los campos están vacíos.
         echo "<script type='text/javascript'>
                 alert('Algunos campos están vacíos');
-                window.location.href = '../login/logins.php'; 
+                window.location.href = '../login/index.php'; 
               </script>";
         exit(); // Detiene la ejecución del script.
     }
@@ -46,32 +44,31 @@ if (!empty($_POST["btningresar"])) {
     if ($datosUsuario) {
         // Guarda los datos del usuario en la sesión.
         $_SESSION["id_usuario"] = $datosUsuario->id_usuario;
-        $_SESSION["nombre_usuario"] = $datosUsuario->nombre_usuario;
+        #$_SESSION["nombre_usuario"] = $datosUsuario->nombre_usuario;
         $_SESSION["usuario"] = $datosUsuario->usuario;
-        $_SESSION["apellido_usuario"] = $datosUsuario->apellido_usuario;
 
         // Registra el inicio de sesión en la base de datos.
-        $usuarioModel->registrarLogin($datosUsuario->nombre_usuario, $datosUsuario->apellido_usuario, 'Inicio');
+        $usuarioModel->registrarLogin($datosUsuario->usuario, 'Inicio');
 
         // Redirige al usuario a la página de inicio correspondiente a su perfil.
         switch ($datosUsuario->id_perfil) {
             case 1:
-                header("Location: ../coordinador/inicio/inicio.php");
+                header("Location:../../inicio/vista/vista_inicio.php");
                 break;
             case 2:
-                header("Location: ../inspector/inicio/inicio.php");
+                header("Location:../../inicio/vista/vista_inicio.php");
                 break;
             case 3:
-                header("Location: ../controlador/inicio/inicio.php");
+                header("Location:#");
                 break;
             case 4:
-                header("Location: ../consulta/inicio/inicio.php");
+                header("Location:#");
                 break;
             default:
                 // Muestra una alerta si el perfil no es válido.
                 echo "<script type='text/javascript'>
                         alert('Perfil no válido');
-                        window.location.href = '../login/logins.php'; 
+                        window.location.href = '../login/index.php'; 
                       </script>";
                 break;
         }
@@ -80,7 +77,7 @@ if (!empty($_POST["btningresar"])) {
         // Muestra una alerta si las credenciales son incorrectas.
         echo "<script type='text/javascript'>
                 alert('Acceso denegado');
-                window.location.href = '../login/vista_login.php'; 
+                window.location.href = '../login/index.php'; 
               </script>";
     }
 }

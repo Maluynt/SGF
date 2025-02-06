@@ -1,10 +1,10 @@
 <!--?php
 session_start();
-include("../conexion_bd/conexion_bd.php");
+include("conexion_bd.php");
 include("ModeloUsuario.php");
 
 if (empty($_SESSION["id_usuario"])) {
-    header("Location:../login/vista_login.php");
+    header("Location:../abrir/vista_inicio.php");
     exit();
 }
 
@@ -218,7 +218,8 @@ if (!$responsable) {
         </p>
         <p>C.A. Metro Los Teques</p>
     </footer>
-
+    
+    <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

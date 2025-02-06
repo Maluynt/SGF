@@ -62,3 +62,4 @@ if (isset($_POST['btningresar'])) {
     }
 }
 ?>
+controlador
