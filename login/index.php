@@ -53,7 +53,7 @@
 <body>
 <div class="container">
     <img class="avatar" src="../img/logo_mlte.png" alt="logo de usuario"><br>
-    <form method="post" action="controlador_login.php">
+    <form method="post" action="controlador/controlador_login.php">
         <div class="input-div">
             <div class="i">
                 <i class="fas fa-user"></i>

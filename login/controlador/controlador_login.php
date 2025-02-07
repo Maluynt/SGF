@@ -1,10 +1,13 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Inicia una nueva sesión o reanuda una existente basada en la cookie de sesión del usuario.
 session_start();
 // Incluye el archivo que contiene la conexión a la base de datos.
 include("../../conexion_bd/conexion_bd.php");
 // Incluye el archivo que contiene la definición de la clase Modelo.
-require 'modelo/modelo.php';
+require '../modelo/modelo.php';
 
 // Crea una instancia de la clase Usuario, pasando la conexión a la base de datos.
 $usuarioModel = new Usuario($pdo);
@@ -68,7 +71,7 @@ if (!empty($_POST["btningresar"])) {
                 // Muestra una alerta si el perfil no es válido.
                 echo "<script type='text/javascript'>
                         alert('Perfil no válido');
-                        window.location.href = '../login/index.php'; 
+                        window.location.href = '../index.php'; 
                       </script>";
                 break;
         }
@@ -77,7 +80,7 @@ if (!empty($_POST["btningresar"])) {
         // Muestra una alerta si las credenciales son incorrectas.
         echo "<script type='text/javascript'>
                 alert('Acceso denegado');
-                window.location.href = '../login/index.php'; 
+                window.location.href = '../index.php'; 
               </script>";
     }
 }
