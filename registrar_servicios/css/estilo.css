@@ -1,0 +1,144 @@
+[data-theme="service1"] {
+  --primary-color: #2c3e50;   /* Azul Oscuro */
+  --accent-color: #e74c3c;    /* Rojo */
+  --bg-body: #ecf0f1;         /* Gris Claro */
+  --bg-content: #ffffff;      /* Blanco */
+  --text-color: #2c3e50; 
+}
+
+[data-theme="electrificacion"] {
+  --primary-color: #3498db;   /* Azul Claro */
+  --accent-color: #2980b9;    /* Azul Oscuro */
+  --bg-body: #f0f8ff;         /* Azul Muy Claro */
+  --bg-content: #e6f3ff;      /* Azul Pastel */
+  --text-color: #2c3e50;      /* Azul Oscuro */
+}
+
+[data-theme="OC"] {
+  --primary-color: #34495e;   /* Gris Azulado */
+  --accent-color: #e67e22;    /* Naranja */
+  --bg-body: #fdf2e9;         /* Naranja Claro */
+  --bg-content: #ffffff;      /* Blanco */
+  --text-color: #2c3e50; 
+}
+
+[data-theme="TEC"] {
+  --primary-color: #9b59b6;   /* Morado */
+  --accent-color: #8e44ad;    /* Morado Oscuro */
+  --bg-body: #f5eef8;         /* Morado Claro */
+  --bg-content: #ffffff;      /* Blanco */
+  --text-color: #2c3e50; 
+}
+
+[data-theme="service5"] {
+  --primary-color: #27ae60;   /* Verde */
+  --accent-color: #219a52;    /* Verde Oscuro */
+  --bg-body: #e8f5e9;         /* Verde Muy Claro */
+  --bg-content: #ffffff;      /* Blanco */
+  --text-color: #2c3e50; 
+}
+
+[data-theme="service6"] {
+  --primary-color: #c0392b;   /* Rojo Oscuro */
+  --accent-color: #e74c3c;    /* Rojo */
+  --bg-body: #fdedec;         /* Rojo Claro */
+  --bg-content: #ffffff;      /* Blanco */
+  --text-color: #2c3e50; 
+}
+[data-theme="service7"] {
+  --primary-color: #f39c12;   /* Amarillo Oscuro */
+  --accent-color: #d35400;    /* Naranja Oscuro */
+  --bg-body: #fef5e7;         /* Amarillo Claro */
+  --bg-content: #ffffff;      /* Blanco */
+  --text-color: #2c3e50; 
+}
+[data-theme="service8"] {
+  --primary-color: #2c3e50;   /* Azul Oscuro */
+  --accent-color: #3498db;    /* Azul Brillante */
+  --bg-body: #f4f6f6;         /* Gris Claro */
+  --bg-content: #ffffff;      /* Blanco */
+  --text-color: #2c3e50; 
+}
+
+
+body {
+    background-color:var(--bg-body);
+  }
+  
+  .sidebar {
+    height: 100vh;
+    
+  
+    background-color: var(--primary-color);
+  color: var(--text-color);
+  }
+  
+  .menu-item {
+  
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+  }
+  
+  .menu-item:hover {
+   
+    background-color: var(--accent-color);
+  color: #fff;
+    text-decoration: none;
+  }
+  
+  .menu-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu {
+   
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0;
+  }
+  
+  .dropdown-item {
+    color: #fff;
+    padding: 0.5rem 1rem;
+  }
+  
+  .dropdown-item:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+  }
+  
+  .content-area {
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--bg-content);
+    
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+     display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+      
+  
+  
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+ 
+  
+
+
+
+
+
+
+
+
+
+
+

@@ -1,17 +1,31 @@
 <?php
-session_start();
-include("../conexion_bd/conexion_bd.php");
-include("../modelo/ModeloUsuario.php");
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+include(__DIR__ . "/../../conexion_bd/conexion_bd.php");
+require_once __DIR__ . '/../modelo/modelousuario.php';
 
 class ControladorInicio {
     public function index() {
-        if (empty($_SESSION["id_usuario"])) {
-            header("Location:vista/vista_inicio.php");
-            exit();
-      }
+        if (!$this->isUserLoggedIn()) {
+            $this->redirectToLogin();
+        }
+        $this->loadView();
+    }
 
-        include("vista/vista_inicio.php");
-   }
+    private function isUserLoggedIn() {
+        return !empty($_SESSION["id_usuario"]);
+    }
+
+    private function redirectToLogin() {
+        header("Location: /metro/SGF/login/index.php"); // Ruta absoluta recomendada
+        exit();
+    }
+
+    private function loadView() {
+        require __DIR__ . '/../vista/vista_inicio.php';
+    }
 }
 
 $controlador = new ControladorInicio();
