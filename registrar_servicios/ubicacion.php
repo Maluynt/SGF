@@ -1,182 +1,102 @@
-
-<?php
+<!--?php
 session_start();
-include("../../conexion/conexion_bd.php");
+include("../conexion_bd/conexion_bd.php");
+include("../modelo/ModeloUsuario.php");
 
 if (empty($_SESSION["id_usuario"])) {
-
-    header("Location:../../login/logins.php");
-
+    header("Location:../login/vista_login.php");
+    exit();
 }
-?>
+
+// Obtener información del usuario
+$informacionUsuario = ModeloUsuario::obtenerInformacionUsuario();
+?-->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubicacion</title>
-    <link rel="stylesheet" href="registros.css">
+    <title>Centro de Control de Fallas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
-<body>
-<header>
-        <section class="avatar">
-            <img src="../../imagen/fondo1.jpg" alt="logo del metro"> <!-- Logo del proyecto -->
-        </section>
-        <h1 class="menu_logo">Centro de Control de Fallas</h1> <!-- Nombre del proyecto -->
-        <div class="time" id="time"></div> <!-- Sección para mostrar la hora -->
+
+<body data-theme="TEC">
+    <header class="bg-dark text-white p-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="../img/logo_mlte.png" alt="logo del metro" class="img-fluid" style="max-width: 100px;">
+                <h1 class="text-center mx-3">Centro de Control de Fallas</h1>
+            </div>
+            <div class="time" id="time"></div>
+        </div>
     </header>
 
-    <main>
-    <section class="asideleft">
-            <ul class="list">
-                <li class="menu_item">
-                    <a href="#" class="menu_link">Usuario</a>
-                    <ul class="menu_nesting">
-                    <li><label>Perfil: <span style="margin-left: 5px;"><?php echo $_SESSION["Perfil"] ?></span></label></li>
-                        <li><label>Carnet: <span style="margin-left: 5px;"><?php echo $_SESSION["usuario"]; ?></span></label></li>
-                        <li><label>Nombre: <span style="margin-left: 5px;"><?php echo $_SESSION["nombre_usuario"]; ?></span></label></li>
-                        <li><label>Apellido: <span style="margin-left: 5px;"><?php echo $_SESSION["apellido_usuario"]; ?></span></label></li>
-                    </ul>
-                </li>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-md-3 sidebar bg-dark text-white">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item dropdown">
+                        <a href="#" class="menu-item dropdown-toggle" data-toggle="dropdown">Información de usuario</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Perfil: <span><?php echo $informacionUsuario['perfil']; ?></span></a></li>
+                            <li><a class="dropdown-item" href="#">Carnet: <span><?php echo $informacionUsuario['usuario']; ?></span></a></li>
+                            <li><a class="dropdown-item" href="#">Nombre: <span><?php echo $informacionUsuario['nombre']; ?></span></a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item dropdown">
+                        <a href="#" class="menu-item dropdown-toggle" data-toggle="dropdown">Gestionar</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Falla</a></li>
+                            <li><a class="dropdown-item" href="#">Registros</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item"><a href="#" class="menu-item">Descargas</a></li>
+                    <li class="list-group-item"><a href="#" class="menu-item">Historial</a></li>
+                    <li class="list-group-item"><a href="#" class="menu-item">Ayuda</a></li>
+                    <li class="list-group-item"><a href="../../login/controlador_cerrar_sesion.php" class="menu-item">Salir</a></li>
+                </ul>
+            </aside>
 
-                <li class="menu_item">
-                    <a href="#" class="menu_link">Gestionar Falla</a>
-                    <ul class="menu_nesting">
-                        <a href="#" class="menu_link" onclick="logActionAndRedirect('Abrir Falla', '../abrir/abrir.php?accion=Abrir Falla')">Abrir</a>
-                        <a href="#" class="menu_link" onclick="logActionAndRedirect('Editar Falla', '../editar/editar.php?accion=Editar Falla')">Editar</a>
-                        <li class="submenu">
-                            <a href="#" class="menu_link">Consultar</a>
-                            <ul class="menu_nesting2">
-                                <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Consultar Falla', '../consultar/consulta.php?accion=Consultar Falla')">Consultar Falla</a></li>
-                                <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Consultar Data', '../consultar/data.php?accion=Consultar Data')">Consultar Data</a></li>
-                                <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Historial', '../historial/historial.php?accion=Estadísticas')">Historial</a></li>
+            <main class="col-md-9 content-area">
+                <div class="container mt-5">
+                    <h2 class="text-center">Registrar ubicacion</h2>
+                    <form method="post" action="ingresar_ubicacion.php"> <!-- Formulario para enviar datos -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="id_ubicacion">Nombre:</label>
+                                    <input type="text" class="form-control" id="id_ubicacion" name="ubicacion" required> <!-- Campo de entrada para sub-sistema -->
+                                </div>
 
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                
-                <li class="menu_item">
-                    <a href="#" class="menu_link">Gestionar registro</a> <!-- Enlace principal -->
-                    <ul class="menu_nesting"> <!-- Submenú de "Gestionar registro" -->
-                    <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Registrar Personal', '../registro/personal.php?accion=Registrar Personal')">Registrar Personal</a></li>
-
-                    <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Registrar Servicio', '../registro/servicios.php?accion=Registrar Servicio')">Registrar Servicio</a></li>
-
-                    <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Registrar Sub-Sistema', '../registro/subsistema.php?accion=Registrar Sub-Sistema')">Registrar Sub-Sistema</a></li>
-
-                    <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Registrar Equipo', '../registro/equipo.php?accion=Registrar Equipo')">Registrar Equipo</a></li>
-
-                    <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Registrar ubicacion', '../registro/ubicacion.php?accion=Registrar Ubicación')">Registrar Ubicación</a></li>
-
-                    <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Registrar Acompañamiento', '../registro/acompañamiento.php?accion=Registrar Acompañamiento')">Registrar Acompañamiento</a></li>
-                               
-                    
-                        
-                    
-                    </ul>
-                </li>
-                <li class="menu_item">
-                    <a href="#" class="menu_link">Descargas</a> <!-- Enlace principal -->
-                    <ul class="menu_nesting"> <!-- Submenú de "descargas" -->
-
-                    <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Reportes', '../reporte/reporte.php?accion=Reportes')">Reportes</a></li>
-
-                    <li><a href="#" class="menu_link" onclick="logActionAndRedirect('Estadísticas', '../estadistica/estadistica.php?accion=Estadísticas')">Estadísticas</a></li>
-
-                  
-                    </ul>
-                </li>
-               
-                <li class="menu_item">
-              <a href="#" class="menu_link" onclick="logActionAndRedirect('Ayuda', '../ayuda/ayuda.php?accion=Ayuda')">Ayuda</a>
-                </li>
-
-
-                <li class="menu_item">
-                <a href="../../login/controlador_cerrar_sesion.php" class="menu_link">Salir</a> 
-                </li>
-            </ul>
-        </section>
-
-
-        <section class="article">
-            <article>
-
-            <?php 
-
-include("../../conexion/conexion_bd.php");
-include("ingresar_ubicacion.php");
-
-?>
-                <form method="post" action="ingresar_ubicacion.php"> <!-- Formulario para enviar datos -->
-                    <div class="caja">
-                    
-                    <div class="grupo">
-                            <h3 class="etiqueta">Ubicación</h3>
-                            <label for="ubicacion">Nombre:</label>
-                            <input type="text" class="input" id="nombre_ubicacion" name="nombre_ubicacion" required> <!-- Campo de entrada para ubicación -->
-                        </div>
-                        <br>
-                        <div class="botones">
-
-                            <button name="btnregistrar" class="primero" type="submit" value="REGISTRAR">REGISTRAR</button><!-- Botón para enviar el formulario -->
-
-                            <a href="../inicio/inicio.php"class="segundo">REGRESAR</a></button>
-                        </div>
+                                <div class="text-center">
+                                    <button name="btnregistrar" class="btn btn-primary" type="submit" value="REGISTRAR">REGISTRAR</button> <!-- Botón para enviar el formulario -->
+                                    <a href="../inicio/inicio.php" class="btn btn-secondary">REGRESAR</a> <!-- Botón para regresar -->
+                                </div>
+                            </div>
                         </div>
                     </form>
-            </article>
-        </section>
-    </main>
+                </div>
+            </main>
+        </div>
+    </div>
 
-    <script>
-    function logActionAndRedirect(accion, url) {
-    // Send AJAX request to log the action
-    const xhr = new XMLHttpRequest();
-    
-    // Get the user's profile from PHP session
-    const perfil = encodeURIComponent('<?php echo $_SESSION["Perfil"]; ?>'); // Asegúrate de que 'Perfil' esté en la sesión
+    <footer class="bg-dark text-white text-center p-3">
+        <p>Redes Sociales:
+            <a href="#" class="text-danger">Facebook</a> |
+            <a href="#" class="text-danger">Twitter</a> |
+            <a href="#" class="text-danger">Instagram</a>
+        </p>
+        <p>C.A. Metro Los Teques</p>
+    </footer>
 
-    xhr.open('GET', `../historial/log_action.php?accion=${encodeURIComponent(accion)}&nombre_personal=${encodeURIComponent('<?php echo $_SESSION["nombre_usuario"]; ?>')}&apellido_personal=${encodeURIComponent('<?php echo $_SESSION["apellido_usuario"]; ?>')}&perfil=${perfil}`, true);
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../JS/script.js"></script>
 
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            const response = JSON.parse(xhr.responseText);
-            if (response.status === 'success') {
-                // Redirect to the URL after logging
-                window.location.href = url;
-            } else {
-                alert('Error al registrar la acción: ' + response.message);
-            }
-        } else {
-            alert('Error en la solicitud: ' + xhr.statusText);
-        }
-    };
-
-    xhr.onerror = function() {
-        alert('Error de conexión.');
-    };
-
-    xhr.send();
-}
-
-        // Script para mostrar la hora actual
-        function updateTime() {
-            const now = new Date(); // Obtiene la fecha y hora actual
-            const options = {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit'
-            }; // Formato de la hora y fecha
-            document.getElementById('time').textContent = now.toLocaleString('es-ES', options); // Muestra la hora y fecha en el formato especificado
-        }
-        setInterval(updateTime, 1000); // Actualiza la hora cada segundo
-        updateTime(); // Llama a la función inmediatamente para mostrar la hora al cargar la página
-</script>
 </body>
+
 </html>

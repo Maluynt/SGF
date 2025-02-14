@@ -1,29 +1,60 @@
 <?php
-include ('../../conexion/conexion_bd.php');
+
+error_reporting(E_ALL); // Habilitar todos los errores
+ini_set('display_errors', 1); // Mostrarlos en pantalla
+session_start(); // Asegurar que session_start() esté presente
+include('../conexion_bd/conexion_bd.php');
+// ... resto del código
 
 if (!empty($_POST['btnregistrar'])) {
-    if (empty($_POST["equipo"]) || empty($_POST["id_equipo_subsistema"])) {
-        echo "<script>alert('Algunos Campos Están Vacíos'); window.location.href='../registro/equipo.php';</script>";
-    } else {
-        $equipo = $_POST["equipo"]; /* aquí se recibe datos de equipo */
-        $id_equipo_subsistema = $_POST["id_equipo_subsistema"];
+    // Validar campos
+    if (empty($_POST["equipo"]) || empty($_POST["subsistema"])) {
+        echo "<script>
+                alert('Todos los campos son obligatorios');
+                window.location.href='equipo.php';
+              </script>";
+        exit();
+    }
 
-        // Validación para el campo equipo
-        if (!preg_match("/^[A-Z][a-zA-Z\s\W]{2,}$/", $equipo)) {
-            echo "<script>alert('El equipo debe comenzar con una letra mayúscula, tener al menos 3 caracteres y acepta caracteres especiales.'); window.location.href='../registro/equipo.php';</script>";
-        } 
-        // Validación para el campo id_equipo_subsistema
-        elseif (!preg_match("/^[0-9\s\W]{1,}$/", $id_equipo_subsistema)) {
-            echo "<script>alert('El Código del subsistema debe ser un número con al menos 1 carácter y aceptar caracteres especiales.'); window.location.href='../registro/equipo.php';</script>";
+    // Sanitizar entradas
+    $equipo = trim($_POST["equipo"]);
+    $id_subsistema = (int)$_POST["subsistema"];
+
+    // Validar formato del subsistema
+    if (!preg_match("/^[\p{Lu}][\p{Ll}\p{L}\s\-\.,\d]{2,}$/u", $equipo)) {
+        mostrarAlerta('El equipo debe comenzar con mayúscula y tener al menos 3 caracteres válidos.');
+    }
+    try {
+        // Insertar usando consultas preparadas
+        $sql = $pdo->prepare("INSERT INTO equipo (id_subsistema, nombre_equipo) VALUES (?, ?)");
+        
+        // Enlazar los parámetros con tipos
+        $sql->bindValue(1, $id_subsistema, PDO::PARAM_INT); // id_servicio como entero
+        $sql->bindValue(2, $equipo, PDO::PARAM_STR); // nombre_subsistema como string
+        
+        // Ejecutar la consulta
+        $sql->execute();
+        
+        echo "<script>
+                alert('El equipo registrado correctamente');
+                window.location.href='equipo.php';
+              </script>";
+    
+    } catch (PDOException $e) {
+        // Manejar error de clave foránea (si el id_ambiente no existe)
+        if ($e->getCode() == '23000') {
+            echo "<script>
+                    alert('Error: El equipo seleccionado no existe');
+                    window.location.href='equipo.php';
+                  </script>";
         } else {
-            $sql = $mysqli->query("INSERT INTO equipo (id_subsistema, nombre_equipo) VALUES ('$id_equipo_subsistema', '$equipo')");
-
-            if ($sql) {
-                echo "<script>alert('Datos Registrados Correctamente'); window.location.href='../inicio/inicio.php';</script>";
-            } else {
-                echo "<script>alert('Error al registrar los datos'); window.location.href='../registro/equipo.php';</script>";
-            }
+            echo "<script>
+                    alert('Error al registrar: " . addslashes($e->getMessage()) . "');
+                    window.location.href='equipo.php';
+                  </script>";
         }
     }
-}
+}    
+
+
 ?>
