@@ -13,7 +13,7 @@ class Usuario {
     // Método para verificar las credenciales del usuario
     public function verificarCredenciales($usuario, $password) {
         // Consulta preparada para obtener los datos del usuario
-        $stmt = $this->conexion->prepare("SELECT id_usuario, id_perfil, contrasena FROM usuario WHERE usuario = :usuario");
+        $stmt = $this->conexion->prepare ("SELECT id_usuario, id_perfil, contrasena FROM usuario WHERE usuario = :usuario");
         // Vincula el parámetro de usuario a la consulta preparada
         $stmt->bindParam(':usuario', $usuario);
         // Ejecuta la consulta preparada

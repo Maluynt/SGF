@@ -13,7 +13,7 @@ require '../modelo/modelo.php';
 $usuarioModel = new Usuario($pdo);
 
 // Verifica si ya existe una sesión de usuario activa.
-if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION ['usuario'])) {
     // Si ya hay una sesión, redirige al usuario a una página específica.
     header("Location:../../inicio/vista/vista_inicio.php"); // Debes cambiar "#" por la URL a la que deseas redirigir.
     exit(); // Detiene la ejecución del script para asegurar la redirección.
