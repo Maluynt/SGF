@@ -1,6 +1,6 @@
 <!--?php
 session_start();
-include("../conexion_bd/conexion_bd.php");
+include("../conexion/conexion_bd.php");
 include("../modelo/ModeloUsuario.php");
 
 if (empty($_SESSION["id_usuario"])) {
@@ -22,11 +22,11 @@ $informacionUsuario = ModeloUsuario::obtenerInformacionUsuario();
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 
-<body>
+<body data-theme="TEC">
     <header class="bg-dark text-white p-3">
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-                <img src="../../img/logo_mlte.png" alt="logo del metro" class="img-fluid" style="max-width: 100px;">
+                <img src="../img/logo_mlte.png" alt="logo del metro" class="img-fluid" style="max-width: 100px;">
                 <h1 class="text-center mx-3">Centro de Control de Fallas</h1>
             </div>
             <div class="time" id="time"></div>
@@ -61,18 +61,32 @@ $informacionUsuario = ModeloUsuario::obtenerInformacionUsuario();
 
             <main class="col-md-9 content-area">
                 <div class="container mt-5">
-                    <h2 class="text-center">Registrar Servicios</h2>
-                    <form method="post" action="ingresar_servicios.php"> <!-- Formulario para enviar datos -->
+                    <h2 class="text-center">Registrar Sub-sistema</h2>
+                    <form method="post" action="ingresar_subsistema.php"> <!-- Formulario para enviar datos -->
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="servicio">Nombre:</label>
-                                    <input type="text" class="form-control" id="servicio" name="servicio" required> <!-- Campo de entrada para sub-sistema -->
+                                    <label for="ambiente">ambiente Padre:</label>
+                                    <select class="form-control" id="ambiente" name="id_ambiente" required>
+                                        <option value="">Seleccione un ambiente</option>
+                                        <?php
+                                        include('../conexion/conexion_bd.php');
+                                        $ambientes = $pdo->query("SELECT id_ambiente, ambiente FROM ambiente");
+                                        foreach ($ambientes as $ambiente) {
+                                            echo "<option value='{$ambiente['id_ambiente']}'>{$ambiente['ambiente']}</option>";
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
 
+                                <!-- Campo para el nombre del subsistema -->
+                                <div class="form-group">
+                                    <label for="sub-sistema">Nombre del Subsistema:</label>
+                                    <input type="text" class="form-control" id="sub-sistema" name="sub_sistema" required>
+                                </div>
                                 <div class="text-center">
-                                    <button name="btnregistrar" class="btn btn-primary" type="submit" value="REGISTRAR">REGISTRAR</button> <!-- Botón para enviar el formulario -->
-                                    <a href="../inicio/inicio.php" class="btn btn-secondary">REGRESAR</a> <!-- Botón para regresar -->
+                                <button name="btnregistrar" class="btn btn-primary" type="submit" value="REGISTRAR">REGISTRAR</button> <!-- Botón para enviar el formulario -->
+                                    <a href="../inicio/inicio.php" class="btn btn-secondary">REGRESAR</a>
                                 </div>
                             </div>
                         </div>

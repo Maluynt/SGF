@@ -1,0 +1,92 @@
+/* Estilos CSS para la barra lateral y el menú hamburguesa */
+body {
+    background-color: #f8f9fa;
+}
+
+.container-fluid {
+    padding: 0;
+    /* Elimina el padding predeterminado del container-fluid */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -250px;
+    /* Oculta la barra lateral inicialmente */
+    width: 250px;
+    background-color: #343a40;
+    /* Color consistente con header y footer */
+    color: white;
+    transition: left 0.3s ease-in-out;
+    /* Transición suave */
+    z-index: 1050;
+    /* Asegura que la barra lateral esté por encima del contenido */
+    overflow-y: auto;
+    /* Agrega scroll si el contenido es mayor a la pantalla */
+}
+
+.sidebar.active {
+    left: 0;
+    /* Muestra la barra lateral */
+}
+
+.content-area {
+    margin-left: 0;
+    /* Inicialmente sin margen */
+    transition: margin-left 0.3s ease-in-out;
+    /* Transición suave */
+    padding: 20px;
+    /* Espacio interno para el contenido */
+}
+
+.content-area.active {
+    margin-left: 250px;
+    /* Margen cuando la barra lateral está visible */
+}
+
+.menu-icon {
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+.header {
+    position: relative;
+    /* Para posicionar el icono del menú */
+}
+
+/* Estilos adicionales */
+.list-group-item {
+    background-color: transparent;
+    /* Fondo transparente para los items de la lista */
+    color: white;
+    /* Texto blanco */
+    border: none;
+    /* Quita los bordes de los items */
+}
+
+.list-group-item a {
+    color: white;
+    /* Color de los links */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .content-area {
+        padding: 10px;
+        /* Reduce el padding en pantallas pequeñas */
+    }
+}
+ /* Estilos para alinear los botones a la derecha y centrarlos verticalmente */
+ .button-group {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 10px; /* Espacio entre el formulario y los botones */
+}
+
+.button-group .btn {
+    margin-left: 10px; /* Espacio entre los botones */
+}

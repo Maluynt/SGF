@@ -1,5 +1,5 @@
 <?php
-include('../conexion_bd/conexion_bd.php');
+include('../conexion/conexion_bd.php');
 
 if (!empty($_POST['btnregistrar'])) {
     if (empty($_POST["servicio"])) {

@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 // Inicia una nueva sesión o reanuda una existente basada en la cookie de sesión del usuario.
 session_start();
 // Incluye el archivo que contiene la conexión a la base de datos.
-include("../../conexion_bd/conexion_bd.php");
+include("../../conexion/conexion_bd.php");
 // Incluye el archivo que contiene la definición de la clase Modelo.
 require '../modelo/modelo.php';
 

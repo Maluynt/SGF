@@ -3,7 +3,7 @@
 error_reporting(E_ALL); // Habilitar todos los errores
 ini_set('display_errors', 1); // Mostrarlos en pantalla
 session_start(); // Asegurar que session_start() esté presente
-include('../conexion_bd/conexion_bd.php');
+include('../conexion/conexion_bd.php');
 // ... resto del código
 
 if (!empty($_POST['btnregistrar'])) {

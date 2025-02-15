@@ -1,6 +1,6 @@
 <!--?php
 session_start();
-include("../conexion_bd/conexion_bd.php");
+include("../conexion/conexion_bd.php");
 include("../modelo/ModeloUsuario.php");
 
 if (empty($_SESSION["id_usuario"])) {
@@ -61,32 +61,18 @@ $informacionUsuario = ModeloUsuario::obtenerInformacionUsuario();
 
             <main class="col-md-9 content-area">
                 <div class="container mt-5">
-                    <h2 class="text-center">Registrar Sub-sistema</h2>
-                    <form method="post" action="ingresar_subsistema.php"> <!-- Formulario para enviar datos -->
+                    <h2 class="text-center">Registrar ubicacion</h2>
+                    <form method="post" action="ingresar_ubicacion.php"> <!-- Formulario para enviar datos -->
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="ambiente">ambiente Padre:</label>
-                                    <select class="form-control" id="ambiente" name="id_ambiente" required>
-                                        <option value="">Seleccione un ambiente</option>
-                                        <?php
-                                        include('../conexion_bd/conexion_bd.php');
-                                        $ambientes = $pdo->query("SELECT id_ambiente, ambiente FROM ambiente");
-                                        foreach ($ambientes as $ambiente) {
-                                            echo "<option value='{$ambiente['id_ambiente']}'>{$ambiente['ambiente']}</option>";
-                                        }
-                                        ?>
-                                    </select>
+                                    <label for="id_ubicacion">Nombre:</label>
+                                    <input type="text" class="form-control" id="id_ubicacion" name="ubicacion" required> <!-- Campo de entrada para sub-sistema -->
                                 </div>
 
-                                <!-- Campo para el nombre del subsistema -->
-                                <div class="form-group">
-                                    <label for="sub-sistema">Nombre del Subsistema:</label>
-                                    <input type="text" class="form-control" id="sub-sistema" name="sub_sistema" required>
-                                </div>
                                 <div class="text-center">
-                                <button name="btnregistrar" class="btn btn-primary" type="submit" value="REGISTRAR">REGISTRAR</button> <!-- Botón para enviar el formulario -->
-                                    <a href="../inicio/inicio.php" class="btn btn-secondary">REGRESAR</a>
+                                    <button name="btnregistrar" class="btn btn-primary" type="submit" value="REGISTRAR">REGISTRAR</button> <!-- Botón para enviar el formulario -->
+                                    <a href="../inicio/inicio.php" class="btn btn-secondary">REGRESAR</a> <!-- Botón para regresar -->
                                 </div>
                             </div>
                         </div>

@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include(__DIR__ . "/../../conexion_bd/conexion_bd.php");
+include(__DIR__ . "/../../conexion/conexion_bd.php");
 require_once __DIR__ . '/../modelo/modelousuario.php';
 
 class ControladorInicio {
