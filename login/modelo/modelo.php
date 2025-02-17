@@ -10,28 +10,20 @@ class Usuario {
         $this->conexion = $conexion;
     }
 
-    // Método para verificar las credenciales del usuario
+// En el método verificarCredenciales, modificar la consulta:
     public function verificarCredenciales($usuario, $password) {
-        // Consulta preparada para obtener los datos del usuario
-        $stmt = $this->conexion->prepare ("SELECT id_usuario, id_perfil, contrasena FROM usuario WHERE usuario = :usuario");
-        // Vincula el parámetro de usuario a la consulta preparada
+        // Incluir id_servicio en la selección
+        $stmt = $this->conexion->prepare("SELECT id_usuario, id_perfil, contrasena, id_servicio FROM usuario WHERE usuario = :usuario");
         $stmt->bindParam(':usuario', $usuario);
-        // Ejecuta la consulta preparada
         $stmt->execute();
-        // Obtiene el resultado de la consulta
         $datos = $stmt->fetch(PDO::FETCH_OBJ);
-
-        // Verifica si se encontraron datos de usuario
-        if ($datos) {
-            // Verifica si la contraseña proporcionada coincide con la contraseña almacenada (hasheada)
-            if (password_verify($password, $datos->contrasena)) {
-                // Retorna los datos del usuario si las credenciales son válidas
-                return $datos;
-            }
+    
+        if ($datos && password_verify($password, $datos->contrasena)) {
+            return $datos; // Ahora incluye id_servicio
         }
-        // Retorna null si las credenciales son inválidas
         return null;
     }
+
 
     // Método para registrar la acción de inicio de sesión en la tabla de bitácora
     public function registrarLogin($nombre_personal, $accion) {

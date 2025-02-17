@@ -15,7 +15,7 @@ $usuarioModel = new Usuario($pdo);
 // Verifica si ya existe una sesión de usuario activa.
 if (isset($_SESSION ['usuario'])) {
     // Si ya hay una sesión, redirige al usuario a una página específica.
-    header("Location:../../inicio/vista/vista_inicio.php"); // Debes cambiar "#" por la URL a la que deseas redirigir.
+    header("Location:../../Administrador/vistas/index.php"); // Debes cambiar "#" por la URL a la que deseas redirigir.
     exit(); // Detiene la ejecución del script para asegurar la redirección.
 }
 
@@ -49,6 +49,8 @@ if (!empty($_POST["btningresar"])) {
         $_SESSION["id_usuario"] = $datosUsuario->id_usuario;
         #$_SESSION["nombre_usuario"] = $datosUsuario->nombre_usuario;
         $_SESSION["usuario"] = $datosUsuario->usuario;
+      
+    $_SESSION["id_servicio"] = $datosUsuario->id_servicio; // Nuevo campo
 
         // Registra el inicio de sesión en la base de datos.
         $usuarioModel->registrarLogin($datosUsuario->usuario, 'Inicio');
@@ -56,10 +58,10 @@ if (!empty($_POST["btningresar"])) {
         // Redirige al usuario a la página de inicio correspondiente a su perfil.
         switch ($datosUsuario->id_perfil) {
             case 1:
-                header("Location:../../inicio/vista/vista_inicio.php");
+                header("Location:../../Administrador/vistas/index.php");
                 break;
             case 2:
-                header("Location:../../inicio/vista/vista_inicio.php");
+                header("Location:../../Administrador/vistas/index.php");
                 break;
             case 3:
                 header("Location:#");

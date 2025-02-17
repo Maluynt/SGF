@@ -1,16 +1,4 @@
-<!--?php
-session_start();
-include("../conexion/conexion_bd.php");
-include("../modelo/ModeloUsuario.php");
-
-if (empty($_SESSION["id_usuario"])) {
-    header("Location:../login/vista_login.php");
-    exit();
-}
-
-// Obtener información del usuario
-$informacionUsuario = ModeloUsuario::obtenerInformacionUsuario();
-?-->
+<!-- vista.php -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,7 +7,7 @@ $informacionUsuario = ModeloUsuario::obtenerInformacionUsuario();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centro de Control de Fallas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="../../css/estilo.css">
 </head>
 
 <body data-theme="TEC">
@@ -35,25 +23,34 @@ $informacionUsuario = ModeloUsuario::obtenerInformacionUsuario();
 
     <div class="container-fluid">
         <div class="row">
-            <?php
-            include('../../siderbar/siderbar.php');
-
-            ?>
+            <aside class="col-md-3 sidebar bg-dark text-white">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item dropdown">
+                        <a href="#" class="menu-item dropdown-toggle" data-toggle="dropdown">Información de usuario</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Perfil: <span><?php echo $informacionUsuario['perfil']; ?></span></a></li>
+                            <li><a class="dropdown-item" href="#">Carnet: <span><?php echo $informacionUsuario['usuario']; ?></span></a></li>
+                            <li><a class="dropdown-item" href="#">Nombre: <span><?php echo $informacionUsuario['nombre']; ?></span></a></li>
+                        </ul>
+                    </li>
+                    <!-- Otros elementos del menú -->
+                </ul>
+            </aside>
 
             <main class="col-md-9 content-area">
                 <div class="container mt-5">
-                    <h2 class="text-center">Registrar ubicacion</h2>
-                    <form method="post" action="ingresar_ubicacion.php"> <!-- Formulario para enviar datos -->
+                    <h2 class="text-center">Registrar Servicios</h2>
+                    <form method="post" action="../controlador/controlador_servicios.php"> <!-- El formulario apunta al mismo controlador -->
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="id_ubicacion">Nombre:</label>
-                                    <input type="text" class="form-control" id="id_ubicacion" name="ubicacion" required> <!-- Campo de entrada para sub-sistema -->
+                                    <label for="id_servicio">Nombre:</label>
+                                    <input type="text" class="form-control" id="id_servicio" name="servicio" required>
                                 </div>
 
                                 <div class="text-center">
-                                    <button name="btnregistrar" class="btn btn-primary" type="submit" value="REGISTRAR">REGISTRAR</button> <!-- Botón para enviar el formulario -->
-                                    <a href="../inicio/inicio.php" class="btn btn-secondary">REGRESAR</a> <!-- Botón para regresar -->
+                                    <button name="btnregistrar" class="btn btn-primary" type="submit" value="REGISTRAR">REGISTRAR</button>
+                                    <a href="../../../Administrador/vistas/index.php" class="btn btn-secondary">REGRESAR</a>
                                 </div>
                             </div>
                         </div>
@@ -74,8 +71,6 @@ $informacionUsuario = ModeloUsuario::obtenerInformacionUsuario();
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../JS/script.js"></script>
 
 </body>

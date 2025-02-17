@@ -1,4 +1,8 @@
-<aside class="col-md-3 sidebar bg-dark text-white">
+<!-- sidebar.php -->
+<aside id="sidebar" class="col-md-3 sidebar bg-dark text-white">
+    <button id="toggleButton" class="btn btn-primary" style="margin-bottom: 10px;">
+        &#9776; <!-- Icono de tres barritas -->
+    </button>
     <ul class="list-group list-group-flush">
         <li class="list-group-item dropdown">
             <a href="#" class="menu-item dropdown-toggle" data-toggle="dropdown">Información de usuario</a>
@@ -21,4 +25,27 @@
         <li class="list-group-item"><a href="../../login/controlador_cerrar_sesion.php" class="menu-item">Salir</a></li>
     </ul>
 </aside>
-quiero que este aside sea un boton con tres barritas y que al presionarlo se pliegue puedes utilizar javascript pero quiero que lo hagas dinamico con colores cambiables. debes mantener una estructura sencilla de modelo vosta y controlador. Ademas debes explicarme com llamarlo para tenerlo general y si lo quiero utilizar solo coloco su direccion
+
+<style>
+    #sidebar {
+        transition: width 0.3s;
+        overflow: hidden;
+    }
+    #sidebar.collapsed {
+        width: 0;
+        padding: 0;
+    }
+    #sidebar .list-group-item {
+        display: none;
+    }
+    #sidebar:not(.collapsed) .list-group-item {
+        display: block;
+    }
+</style>
+
+<script>
+    document.getElementById('toggleButton').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+    });
+</script>
