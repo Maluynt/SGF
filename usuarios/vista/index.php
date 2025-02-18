@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centro de Control de Fallas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../css/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -43,8 +43,11 @@
                     <form action="../controlador/controlador_registrar_usuario.php" method="post" class="mx-auto" style="max-width: 500px;">
                         <div class="form-group">
                             <label for="id_personal">Carnet de Personal</label>
-                            <input type="text" class="form-control" name="id_personal" placeholder="Código de Personal" required>
+                            <input type="text" id="id_personal" class="form-control" placeholder="Buscar personal..." autocomplete="off">
+                            <input type="hidden" name="id_personal" id="id_personal_hidden">
+                            <div id="sugerencias-personal" class="list-group" style="position: absolute; z-index: 1000;"></div>
                         </div>
+
                         <div class="form-group">
                             <label for="id_perfil">Perfil</label>
                             <select class="form-control" name="id_perfil" required>
@@ -84,8 +87,16 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                                        <i class="fas fa-eye" id="eyeIcon"></i>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="button-group">
                             <button type="submit" class="btn btn-danger">Registrar</button>
                             <a href="../inicio/inicio.php" class="btn btn-secondary">Regresar</a>
@@ -105,10 +116,11 @@
         <p>C.A. Metro Los Teques</p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
     <script>
         function toggleSidebar() {
             const sidebar = document.querySelector('.sidebar');

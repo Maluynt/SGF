@@ -37,5 +37,20 @@ class Usuario {
         $stmt = $this->pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function buscarPersonal($termino) {
+        $sql = "SELECT id_personal, nombre_personal FROM personal WHERE nombre_personal LIKE :termino OR id_personal::text LIKE :termino"; // Asegúrate de que id_personal sea tratado como texto
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['termino' => "%$termino%"]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+
+    public function verificarIdPersonal($id_personal) {
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM usuario WHERE id_personal = :id_personal");
+        $stmt->execute(['id_personal' => $id_personal]);
+        return $stmt->fetchColumn() > 0; // Retorna true si existe, false si no
+    }
+    
 }
 ?>
