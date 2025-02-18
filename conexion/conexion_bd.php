@@ -20,6 +20,7 @@ try {
 } catch (PDOException $e) {
     // Captura cualquier excepción de conexión y muestra un mensaje de error
     echo "Error en la conexión: " . $e->getMessage();
+    exit;
 }
 ?>
 
