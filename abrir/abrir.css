@@ -1,8 +1,0 @@
-.custom-input {
-    width: 300px; /* Cambia este valor según sea necesario */
-    border-color: blue;
-    border-radius: 10px;
-}
-input,select{
-    border-color: brown;
-}

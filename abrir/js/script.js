@@ -1,3 +1,4 @@
+// hora en pantalla del sistema
 function updateTime() {
     const now = new Date();
     const options = {
