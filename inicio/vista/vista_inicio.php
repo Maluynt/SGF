@@ -1,29 +1,26 @@
-<?php
-require_once('../controlador/controladorinicio.php');
+<?php if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
-<?php include('partials/header.php'); ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/header.php'; ?>
 
-<div class="container-fluid">
-    <div class="row">
-        <?php include('partials/aside.php'); ?>
-        
-        <main class="col-md-9 content-area">
-            <div class="p-4 mt-3">
-                <h2 class="text-primary">Bienvenido al Centro de Control de Fallas</h2>
-                <p class="text-muted">Aquí puede gestionar y consultar las fallas del sistema de manera eficiente.</p>
+
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/siderbar.php'; ?>
+
+<main class="main-content">
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-md-12 content-area">
+                <h2 class="text-primary">Bienvenido al Sistema</h2>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <p class="card-text">Contenido principal de la aplicación</p>
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
     </div>
-</div>
+</main>
 
-<?php include('partials/footer.php'); ?>
-
-
-
-   
-         
-             
-              
-                      
-             
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/footer.php'; ?>

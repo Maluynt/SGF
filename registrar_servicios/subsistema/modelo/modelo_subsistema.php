@@ -1,26 +1,39 @@
 <?php
 class SubsistemaModel {
     private $pdo;
-
     public function __construct($pdo) {
         $this->pdo = $pdo;
     }
 
+    // Obtiene todos los ambientes desde la base de datos
     public function obtenerAmbientes() {
-        return $this->pdo->query("SELECT id_ambiente, ambiente FROM ambiente")->fetchAll();
+        $sql = "SELECT id_ambiente, ambiente FROM ambiente";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function registrar($id_ambiente, $nombre) {
-        // Obtener id_servicio de la sesión directamente en el modelo
-        $id_servicio = $_SESSION['id_servicio'] ?? null;
-        
-        if (!$id_servicio) {
-            throw new Exception("Usuario no tiene servicio asignado");
-        }
+    // Registra un nuevo subsistema en la base de datos
     
+    public function registrar($id_servicio, $id_ambiente, $nombre) {
+        if (!is_numeric($id_servicio) || !is_numeric($id_ambiente)) {
+            throw new Exception("ID de servicio o ambiente inválido.");
+        }
+
+        if (empty($nombre)) {
+            throw new Exception("El nombre del subsistema no puede estar vacío.");
+        }
+
         $sql = $this->pdo->prepare("INSERT INTO sub_sistema (id_servicio, id_ambiente, nombre_subsistema) VALUES (?, ?, ?)");
-        return $sql->execute([$id_servicio, $id_ambiente, $nombre]);
+        if (!$sql->execute([$id_servicio, $id_ambiente, $nombre])) {
+            throw new Exception("Error al registrar el subsistema.");
+        }
+
+        return true; // Retorna verdadero si se registró correctamente
+    }
+
+    // Método adicional para obtener todos los subsistemas
+    public function obtenerSubsistemas() {
+        return $this->pdo->query("SELECT * FROM sub_sistema")->fetchAll();
     }
 }
-?>
-
