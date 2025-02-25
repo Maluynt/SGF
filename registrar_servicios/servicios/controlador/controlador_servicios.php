@@ -3,6 +3,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/controlador_usuario.php'; 
 
 include("../../../conexion/conexion_bd.php");
 include("../modelo/modelo_servicios.php");
@@ -46,4 +47,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnregistrar'])) {
         echo "<script>alert('Error al registrar: $error'); window.location.href = '../vista/vista_servicios.php';</script>";
     }
 }
+include __DIR__ . '/../vista/vista_servicios.php';
 ?>

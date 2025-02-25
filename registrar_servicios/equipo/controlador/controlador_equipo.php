@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/controlador_usuario.php'; 
 require_once __DIR__ . '/../../../conexion/conexion_bd.php';
 require_once __DIR__ . '/../modelo/modelo_equipo.php';
 
