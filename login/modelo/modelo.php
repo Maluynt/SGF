@@ -24,7 +24,19 @@ class Usuario {
         return null;
     }
 
-
+    public function obtenerInformacionUsuario($id_usuario)
+    {
+        $stmt = $this->conexion->prepare("
+            SELECT u.id_usuario, u.usuario, u.id_perfil, u.id_servicio, p.nombre_personal, p.carnet 
+            FROM usuario u
+            INNER JOIN personal p ON u.id_personal = p.id_personal
+            WHERE u.id_usuario = :id_usuario
+        ");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+    
     // Método para registrar la acción de inicio de sesión en la tabla de bitácora
     public function registrarLogin($nombre_personal, $accion) {
         // Obtiene la fecha y hora actual

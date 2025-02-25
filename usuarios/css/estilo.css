@@ -90,3 +90,37 @@ body {
 .button-group .btn {
     margin-left: 10px; /* Espacio entre los botones */
 }
+
+#sugerencias-personal {
+    background-color: white; /* Color de fondo de la caja de sugerencias */
+    border: 1px solid #ccc; /* Borde de la caja */
+    border-radius: 4px; /* Bordes redondeados */
+    max-height: 200px; /* Altura máxima de la caja */
+    overflow-y: auto; /* Habilitar scroll si hay muchas sugerencias */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    position: absolute; /* Para que se posicione correctamente */
+}
+
+.list-group-item {
+    color: #333; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa; /* Color de fondo al pasar el mouse */
+    color: #000; /* Color del texto al pasar el mouse */
+}
+
+.input-group-text {
+    background-color: #fff; /* Asegúrate de que el fondo sea blanco */
+    border: 1px solid #ced4da; /* Coincide con el borde del input */
+    border-left: none; /* Eliminar borde izquierdo para que se vea como parte del input */
+}
+
+.input-group .form-control {
+    border-radius: 0.25rem; /* Bordes redondeados */
+}
+
+.input-group .input-group-append .input-group-text {
+    border-radius: 0 0.25rem 0.25rem 0; /* Bordes redondeados en el lado derecho */
+}
