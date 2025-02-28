@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/controlador_usuario.php'; 
 require_once __DIR__ . '/../../../conexion/conexion_bd.php';
 require_once __DIR__ . '/../modelo/modelo_ambiente.php';
-require_once __DIR__ . '/../../../inicio/modelo/modelo_usuario.php';
+
 
 // Remover el exit(); que estaba aquí
 
@@ -36,7 +36,7 @@ try {
             throw new Exception("Error al guardar en la base de datos");
         }
 
-        header("Location: ../vista/vista_ambiente.php");
+        header("Location: /metro/SGF/registrar_servicios/ambiente/vista/vista_ambiente.php");
         exit();
     }
 
@@ -54,4 +54,4 @@ try {
 
 
 // Incluir la vista al final del script
-include __DIR__ . '/../vista/vista_ambiente.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/registrar_servicios/ambiente/vista/vista_ambiente.php';

@@ -31,7 +31,7 @@ try {
             throw new Exception("Error al guardar en la base de datos");
         }
 
-        header("Location: ../vista/vista_equipo.php");
+        header("Location: /metro/SGF/registrar_servicios/equipo/vista/vista_equipo.php");
         exit();
     }
 
@@ -49,5 +49,7 @@ try {
 }
 
 // Pasar variables a la vista
-require '../vista/vista_equipo.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/registrar_servicios/equipo/vista/vista_equipo.php';
+
 exit();

@@ -52,29 +52,21 @@ if (!empty($_POST["btningresar"])) {
       
     $_SESSION["id_servicio"] = $datosUsuario->id_servicio; // Nuevo campo
 
+    
+
         // Registra el inicio de sesión en la base de datos.
         $usuarioModel->registrarLogin($datosUsuario->usuario, 'Inicio');
 
         // Redirige al usuario a la página de inicio correspondiente a su perfil.
-        switch ($datosUsuario->id_perfil) {
+        switch ($datosUsuario->id_perfil==1) {
             case 1:
                 header("Location:../../Administrador/vistas/index.php");
                 break;
-            case 2:
-                header("Location:../../Administrador/vistas/index.php");
-                break;
-            case 3:
-                header("Location:#");
-                break;
-            case 4:
-                header("Location:#");
-                break;
+           
             default:
                 // Muestra una alerta si el perfil no es válido.
-                echo "<script type='text/javascript'>
-                        alert('Perfil no válido');
-                        window.location.href = '../index.php'; 
-                      </script>";
+                header("Location: /metro/SGF/inicio/controlador/controlador_inicio.php"); // Cambia esta ruta
+           
                 break;
         }
         exit(); // Detiene la ejecución del script.

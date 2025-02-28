@@ -11,7 +11,7 @@
 
             <main class="main-content"> 
                 <div class="container mt-5">
-                    <h2 class="text-center">Registrar Sub-sistema</h2>
+                    <h2 class="text-center">Registrar Equipo</h2>
                     <?php if (isset($_SESSION['error'])): ?>
                         <div class="alert alert-danger"><?= $_SESSION['error'] ?></div>
                         <?php unset($_SESSION['error']); ?>
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Nombre del Subsistema:</label>
+                            <label>Nombre del Equipo:</label>
                             <input type="text" class="form-control" name="equipo" required>
                         </div>
 

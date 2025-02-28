@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/controlador_usuario.php'; 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/conexion/conexion_bd.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/registrar_servicios/subsistema/modelo/modelo_subsistema.php';
 
@@ -16,11 +16,15 @@ if (isset($_POST['id_servicio'])) {
 } elseif (isset($_SESSION['id_servicio'])) {
     $id_servicio = $_SESSION['id_servicio'];
 } else {
-    $_SESSION['error'] = "ID de servicio no recibido.";
-    header("Location: ../vista/vista_servicios.php"); // Ajusta la ubicación correcta
-    exit();
+    // Si no se recibe id_servicio, mantén el valor de la sesión
+    if (!isset($_SESSION['id_servicio'])) {
+        $_SESSION['error'] = "ID de servicio no recibido.";
+        header("Location: /metro/SGF/registrar_servicios/subsistema/controlador/controlador_subsistema.php"); // Ajusta la ubicación correcta
+        exit();
+    } else {
+        $id_servicio = $_SESSION['id_servicio'];
+    }
 }
-
 // Crear instancia del modelo
 $modelo = new SubsistemaModel($pdo);
 
@@ -29,7 +33,7 @@ try {
     $ambientes = $modelo->obtenerAmbientes();
 } catch (Exception $e) {
     $_SESSION['error'] = "Error al obtener ambientes: " . $e->getMessage();
-    header("Location: ../vista/vista_subsistema.php");
+    header("Location: /metro/SGF/registrar_servicios/subsistema/controlador/controlador_subsistema.php");
     exit();
 }
 
@@ -50,11 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $modelo->registrar($id_servicio, $id_ambiente, $nombre);
 
         $_SESSION['exito'] = "Subsistema registrado exitosamente.";
-        header("Location: ../vista/vista_subsistema.php");
+        header("Location: /metro/SGF/registrar_servicios/subsistema/controlador/controlador_subsistema.php");
         exit();
     } catch (Exception $e) {
         $_SESSION['error'] = $e->getMessage();
-        header("Location: ../vista/vista_subsistema.php");
+        header("Location: /metro/SGF/registrar_servicios/subsistema/controlador/controlador_subsistema.php");
         exit();
     }
 }

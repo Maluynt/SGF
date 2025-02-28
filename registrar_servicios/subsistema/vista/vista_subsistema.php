@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 ?>
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/header.php'; ?>
+
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/siderbar.php'; ?>
 
 

@@ -37,8 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnregistrar'])) {
         $_SESSION['error'] = $e->getMessage();
     }
     
-    header("Location: ../vista/vista_ubicacion.php");
+    header("Location: /metro/SGF/registrar_servicios/ubicacion/vista/vista_ubicacion.php");
     exit();
 }
-include __DIR__ . '/../vista/vista_ubicacion.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/registrar_servicios/ubicacion/vista/vista_ubicacion.php';
+
+
 ?>
