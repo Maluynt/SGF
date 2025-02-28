@@ -1,5 +1,65 @@
 <style>
+  /* Personalización del scrollbar para navegadores basados en WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 18px; /* Ancho del scrollbar */
+}
 
+::-webkit-scrollbar-track {
+   
+    background: rgb(35, 41, 43);/* Color de fondo del scrollbar */
+    
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #495057; /* Color del "thumb" (parte que se arrastra) */
+    border-radius: 30px; /* Bordes redondeados del thumb */
+    background:rgb(35, 41, 43); /* Color de fondo del scrollbar */
+ 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #495057; /* Color del "thumb" al pasar el mouse */
+    
+
+}
+
+
+
+/* Personalización del scrollbar para Firefox */
+.scrollable {
+    scrollbar-color:rgb(92, 109, 126) #2c3e50; /* Color del "thumb" y del "track" */
+    scrollbar-width: 18px; /* Ancho del scrollbar */
+    overflow: auto; 
+    max-height: 500px;
+     max-width: 1400px;
+     align-items: center;
+     text-align: center;
+}
+.scrollable::-webkit-scrollbar-thumb {
+    background-color: rgb(62, 66, 73); /* Color del "thumb" (parte que se arrastra) */
+    border-radius: 10px; /* Bordes redondeados del thumb */
+}
+
+
+
+
+  .header-table {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+            align-content: center;
+        }
+
+        .status-resuelto {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status-pendiente {
+            background-color: #fff3cd;
+            color: #856404;
+        }
 
 /* Sobreescribir estilos necesarios */
 .main-sidebar {
@@ -16,11 +76,17 @@
 .sidebar-collapse .content-wrapper {
     margin-left: 0;
 }
+body::-webkit-scrollbar-thumb {
+  background-color:rgb(110, 115, 119);
+  border-radius: 10px;
+ 
+}
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-body);
+ 
 }
 
 /* Header */

@@ -25,13 +25,16 @@ $modelo = new ModeloUsuario($pdo);
 $datosUsuario = $modelo->obtenerInformacionUsuario($_SESSION['id_usuario']);
 
 // Mapear datos para la vista
+// Mapear datos para la vista
 $informacionUsuario = [
     'nombre' => $datosUsuario->nombre_personal,
-    'perfil' => $datosUsuario->nombre_perfil,
+    'perfil' => $datosUsuario->nombre_perfil, // Cambié la clave
+    'id_perfil' => $datosUsuario->id_perfil, // Cambié la clave
     'usuario' => $datosUsuario->usuario,
     'carnet' => $datosUsuario->carnet,
     'servicio' => $datosUsuario->nombre_servicio
 ];
+
 
 // Definir constante BASE_URL (debe apuntar al root del proyecto)
 define('BASE_URL', 'http://localhost/metro/SGF/');

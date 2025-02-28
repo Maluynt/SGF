@@ -15,6 +15,7 @@ class ModeloUsuario {
                 p.nombre_personal, 
                 p.carnet,
                 pr.perfil AS nombre_perfil,
+                pr.id_perfil,
                 s.nombre_servicio AS nombre_servicio
             FROM usuario u
             INNER JOIN personal p ON u.id_personal = p.id_personal
