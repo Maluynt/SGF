@@ -15,7 +15,7 @@ $usuarioModel = new Usuario($pdo);
 // Verifica si ya existe una sesión de usuario activa.
 if (isset($_SESSION ['usuario'])) {
     // Si ya hay una sesión, redirige al usuario a una página específica.
-    header("Location:../../Administrador/vistas/index.php"); // Debes cambiar "#" por la URL a la que deseas redirigir.
+    header("Location:../../Administrador/controlador/controlador.php"); // Debes cambiar "#" por la URL a la que deseas redirigir.
     exit(); // Detiene la ejecución del script para asegurar la redirección.
 }
 

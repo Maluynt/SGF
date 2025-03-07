@@ -6,7 +6,7 @@ $host = "localhost"; // Dirección del servidor donde está alojada la base de d
 $port = "5432"; // Puerto predeterminado de PostgreSQL
 $user = "postgres"; // Nombre de usuario de PostgreSQL
 $password = "25901"; // Contraseña correspondiente al usuario
-$dbname = "SGF"; // Nombre de la base de datos a la que deseas conectarte
+$dbname = "SGF1"; // Nombre de la base de datos a la que deseas conectarte
 
 try {
     // Crear una cadena de conexión utilizando el driver de PostgreSQL

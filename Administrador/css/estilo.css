@@ -23,7 +23,7 @@
 [data-color="4"] { background: #FFA62B; }
 [data-color="5"] { background: #3D5AFE; }
 [data-color="6"] { background: #4CAF50; }
-[data-color="7"] { background: #7C4DFF; }
+[data-color="7"] { background: #0065fc; }
 [data-color="8"] { background: #FF4081; }
 
 .card-content {
@@ -32,4 +32,17 @@
 }
 .cursor-pointer {
     cursor: pointer;
+}
+
+
+
+
+
+.bg-dark {
+    background-color: #17212c !important;
+}
+
+.time {
+    font-size: 1.2rem;
+    font-weight: bold;
 }

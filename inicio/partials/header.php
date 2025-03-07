@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centro de Control de Fallas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/metro/SGF/inicio/css/estilo.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
    
-    <?php include_once($_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/css/estilo.php');
-?>
+
 </head>
 <body>
     <header class="bg-dark text-white p-3">

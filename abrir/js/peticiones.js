@@ -4,7 +4,7 @@ $(document).ready(function() {
         if (id_ubicacion) {
             $.ajax({
                 type: 'POST',
-                url: 'controlador/AjaxControlador.php',
+                url: '/metro/SGF/abrir/controlador/AjaxControlador.php',
                 data: { action: 'obtenerAmbientes', id_ubicacion: id_ubicacion },
                 success: function(data) {
                     $('#ambiente').empty().append('<option value="">Seleccionar</option>');
@@ -19,14 +19,19 @@ $(document).ready(function() {
         }
     });
 
-    $('#ambiente, #servicio').change(function() {
-        var id_ambiente = $('#ambiente').val();
-        var id_servicio = $('#servicio').val();
+    $('#ambiente').change(function() { // Solo escuchar cambios en ambiente
+        var id_ambiente = $(this).val();
+        var id_servicio = $('#id_servicio').val(); // Obtener del campo oculto
+    
         if (id_ambiente && id_servicio) {
             $.ajax({
                 type: 'POST',
-                url: 'controlador/AjaxControlador.php',
-                data: { action: 'obtenerSubSistemas', id_ambiente: id_ambiente, id_servicio: id_servicio },
+                url: '/metro/SGF/abrir/controlador/AjaxControlador.php',
+                data: { 
+                    action: 'obtenerSubSistemas', 
+                    id_ambiente: id_ambiente, 
+                    id_servicio: id_servicio // Enviar el id_servicio oculto
+                },
                 success: function(data) {
                     $('#sub_sistema').empty().append('<option value="">Seleccionar</option>');
                     var subsistemas = JSON.parse(data);
@@ -39,13 +44,12 @@ $(document).ready(function() {
             $('#sub_sistema').empty().append('<option value="">Seleccionar</option>');
         }
     });
-
     $('#sub_sistema').change(function() {
         var id_subsistema = $(this).val();
         if (id_subsistema) {
             $.ajax({
                 type: 'POST',
-                url: 'controlador/AjaxControlador.php',
+                url: '/metro/SGF/abrir/controlador/AjaxControlador.php',
                 data: { action: 'obtenerEquipos', id_subsistema: id_subsistema },
                 success: function(data) {
                     $('#equipo').empty().append('<option value="">Seleccionar</option>');
@@ -60,3 +64,6 @@ $(document).ready(function() {
         }
     });
 });
+
+
+

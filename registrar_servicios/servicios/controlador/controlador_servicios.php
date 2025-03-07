@@ -7,7 +7,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/controlador_usuario.php';
 
 include("../../../conexion/conexion_bd.php");
 include("../modelo/modelo_servicios.php");
-
+$informacionUsuario = [
+    'servicio' => $_SESSION['nombre_servicio'] ?? 'No asignado',
+    'id_servicio' => $_SESSION['id_servicio'] ?? ''
+];
+$informacionUsuario = [
+    'nombre' => $datosUsuario->nombre_personal, // Asegúrate que esta propiedad existe
+    'perfil' => $datosUsuario->nombre_perfil,
+    'usuario' => $datosUsuario->usuario,
+    'id_usuario' => $datosUsuario->id_usuario,
+    'carnet' => $datosUsuario->carnet,
+    'servicio' => $datosUsuario->nombre_servicio
+   
+];
 
 try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnregistrar'])) {

@@ -2,8 +2,8 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/sidebar.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/header.php'; 
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/siderbar.php'; 
 
 // Configuración de campos visibles
 $allowedFields = [
@@ -21,13 +21,12 @@ $allowedFields = [
     'Responsable del Area' => 'nombre_responsable_area',
     'Días Abierta' => 'dias_falla',
     'Fecha Cierre' => 'fecha_hora_cierre',
-    'N.Intervencion' => 'n_intervencion',
+    'N.Intervension' => 'n_intervension',
     'Solucion' => 'solucion',
     'Metodo de reporte' => 'nombre_metodo_reporte',
-    'Acompañamiento' => 'acompañamiento',
 ];
 
-// FILTROS ACTIVOS
+// FILTROS ACTIVOS (Modifica este array para agregar/quitar filtros)
 $activeFilters = [
     'Equipo' => 'nombre_equipo',
     'Subsistema' => 'nombre_subsistema',
@@ -44,52 +43,24 @@ foreach ($activeFilters as $displayName => $fieldName) {
     $filterOptions[$fieldName] = array_unique(array_column($fallas, $fieldName));
 }
 ?>
-</main>
 
 <main class="main-content">
     <div class="container mt-4">
-        <?php if (isset($_SESSION['exito'])): ?>
-            <div class="alert alert-success">
-                <?= htmlspecialchars($_SESSION['exito']); ?>
-                <?php unset($_SESSION['exito']); ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if (isset($_SESSION['error'])): ?>
-            <div class="alert alert-danger">
-                <?= htmlspecialchars($_SESSION['error']); ?>
-                <?php unset($_SESSION['error']); ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if (!isset($error) || !$error): ?>
+        <?php if ($error): ?>
+            <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+        <?php else: ?>
             <!-- SECCIÓN DE BUSQUEDA Y FILTROS -->
             <div class="filter-container">
-
-                <div class="search-container mb-3 d-flex align-items-center gap-2">
-
-                    <input type="text" id="searchInput"
+                <div class="search-container mb-3">
+                    <input type="text" id="searchInput" 
                         placeholder="Buscar en todos los campos..."
-                        class="form-control flex-grow-1">
-                    <button class="btn btn-outline-secondary" id="reloadPage"
-                        title="Recargar tabla completa" type="button">
-                        <i class="fas fa-sync-alt"></i> Restablecer
-                    </button>
-
-                    <div class="col-md-4">
-                        <input type="date" id="fechaInicio" class="form-control" placeholder="Fecha inicio">
-                    </div>
-                    <div class="col-md-4">
-                        <input type="date" id="fechaFin" class="form-control" placeholder="Fecha fin">
-                    </div>
-
-
+                        class="form-control">
                 </div>
 
                 <div class="filter-grid">
                     <?php foreach ($activeFilters as $displayName => $fieldName): ?>
                         <div class="filter-group">
-                            <select class="filter-select form-control" data-column="<?= $fieldName ?>">
+                            <select class="filter-select" data-column="<?= $fieldName ?>">
                                 <option value=""><?= $displayName ?></option>
                                 <?php foreach ($filterOptions[$fieldName] as $value): ?>
                                     <option value="<?= htmlspecialchars($value) ?>">
@@ -101,38 +72,30 @@ foreach ($activeFilters as $displayName => $fieldName) {
                     <?php endforeach; ?>
                 </div>
             </div>
+            <br>
 
-            <!-- TABLA -->
+            <!-- TABLA COMPLETA -->
             <div class="table-responsive-lg">
                 <table class="table table-hover table-striped">
                     <thead class="thead-dark">
                         <tr>
-                            <th class="align-middle sticky-header">Acciones</th>
                             <?php foreach ($allowedFields as $displayName => $fieldName): ?>
-                                <th class="align-middle sticky-header" data-column="<?= $fieldName ?>">
-                                    <?= $displayName ?>
-                                </th>
+                                <th class="align-middle sticky-header"><?= $displayName ?></th>
                             <?php endforeach; ?>
                         </tr>
                     </thead>
                     <tbody id="tableBody">
                         <?php foreach ($fallas as $falla): ?>
                             <tr>
-                                <td class="align-middle">
-                                    <a href="/metro/SGF/consulta/vista/editar_falla.php?id=<?= $falla['id_falla'] ?>"
-                                        class="btn btn-sm btn-outline-primary">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                </td>
                                 <?php foreach ($allowedFields as $displayName => $fieldName): ?>
                                     <td class="align-middle">
                                         <?php
                                         $value = $falla[$fieldName] ?? null;
                                         echo $value !== null ? htmlspecialchars($value) : 'N/A';
-
-                                        if ($fieldName === 'nombre_prioridad' && isset($falla['color_prioridad'])) {
+                                        
+                                        if($fieldName === 'nombre_prioridad' && isset($falla['color_prioridad'])) {
                                             echo '<div class="priority-indicator" 
-                                                  style="background-color: ' . $falla['color_prioridad'] . '"></div>';
+                                                  style="background-color: '.$falla['color_prioridad'].'"></div>';
                                         }
                                         ?>
                                     </td>
@@ -143,7 +106,7 @@ foreach ($activeFilters as $displayName => $fieldName) {
                 </table>
             </div>
 
-            <!-- PAGINACIÓN -->
+            <!-- PAGINACIÓN (mantenido igual) -->
             <div class="pagination-container mt-3 d-flex justify-content-center">
                 <button class="btn btn-outline-primary mx-2" id="prevPage">Anterior</button>
                 <span id="pageInfo" class="align-self-center mx-2">Página 1 de 5</span>
@@ -152,7 +115,10 @@ foreach ($activeFilters as $displayName => $fieldName) {
         <?php endif; ?>
     </div>
 
-    <script src="/metro/SGF/consulta/js/script.js"></script>
+    <script src="/metro/SGF/consulta/js/script.js">
+    </script>
 </main>
 
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/footer.php'; ?>
+
+
