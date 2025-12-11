@@ -1,3 +1,12 @@
+
+<?php
+// seguridad_vista.php
+if (!isset($esVistaSegura) || $esVistaSegura !== true) {
+    die('Acceso prohibido - El Metro de Los Teques');
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

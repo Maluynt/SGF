@@ -14,5 +14,5 @@ document.getElementById('generatePdf').addEventListener('click', function() {
     const params = new URLSearchParams(filters);
     
     // Enviar por GET o POST
-    window.open(`/metro/SGF/consulta/controlador/generar_pdf.php?${params}`, '_blank');
+    window.open(`/metro/SGF/reporte/controlador/generar_pdf.php?${params}`, '_blank');
 });

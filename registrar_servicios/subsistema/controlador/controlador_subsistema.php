@@ -1,8 +1,10 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/controlador_usuario.php'; 
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/logout/auth.php';
+verificarAutenticacion();
+
+
+
 include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/conexion/conexion_bd.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/registrar_servicios/subsistema/modelo/modelo_subsistema.php';
 
@@ -62,6 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
-
+$esVistaSegura = true; // Bandera de seguridad
 // Mostrar vista (solicitudes GET)
 include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/registrar_servicios/subsistema/vista/vista_subsistema.php';

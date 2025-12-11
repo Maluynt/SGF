@@ -1,4 +1,8 @@
 <?php
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/logout/auth.php';
+verificarAutenticacion();
+
 include "../../conexion/conexion_bd.php";
 include "../modelo/Modelo.php";
 

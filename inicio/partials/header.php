@@ -1,15 +1,26 @@
+<?php
+// En la primera línea de header.php
+if (!defined('INCLUIDO_SEGURO')) {
+    die('Acceso directo no permitido');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centro de Control de Fallas</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/metro/SGF/inicio/css/estilo.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-   
+    
 
+
+
+    <!-- CSS Local -->
+    <link rel="stylesheet" href="/metro/SGF/assets/vendor/components/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/metro/SGF/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/metro/SGF/assets/css/all.min.css">
+<link rel="stylesheet" href="/metro/SGF/assets/select2-4.0.13/dist/css/select2.min.css">
+<link rel="stylesheet" href="/metro/SGF/inicio/css/estilo.css">
+  
 </head>
 <body>
     <header class="bg-dark text-white p-3">

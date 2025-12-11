@@ -1,114 +1,193 @@
-
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/logout/auth.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/conexion/conexion_bd.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/abrir/modelo/Modelo.php';
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/conexion/conexion_bd.php'; 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/controlador_usuario.php'; 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/abrir/modelo/Modelo.php'; 
-
-$informacionUsuario = [
-    'servicio' => $_SESSION['nombre_servicio'] ?? 'No asignado',
-    'id_servicio' => $_SESSION['id_servicio'] ?? ''
-];
-$informacionUsuario = [
-    'nombre' => $datosUsuario->nombre_personal, // Asegúrate que esta propiedad existe
-    'perfil' => $datosUsuario->nombre_perfil,
-    'usuario' => $datosUsuario->usuario,
-    'id_usuario' => $datosUsuario->id_usuario,
-    'carnet' => $datosUsuario->carnet,
-    'servicio' => $datosUsuario->nombre_servicio
-   
-];
-class Controlador {
+class FallaController {
     private $modelo;
+    private $id_servicio;
 
     public function __construct($pdo) {
         $this->modelo = new Modelo($pdo);
-     
+        $this->id_servicio = $_SESSION['id_servicio'] ?? null;
     }
 
-    public function obtenerDatosFormulario() {
-        // Obtener el id_servicio de la sesión
-        $id_servicio = $_SESSION['id_servicio'] ?? null;
-    
+    public function handleRequest() {
+        try {
+            // Verificaciones de seguridad primero
+            verificarAutenticacion();
+            verificarPermisos(['ADMINISTRADOR', 'Controlador', 'Inspector']);
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $this->procesarFormulario();
+            }
+            
+            $this->mostrarVista();
+            
+        } catch (Exception $e) {
+            error_log("Error crítico: " . $e->getMessage());
+            $this->manejarError("Ocurrió un error inesperado. Por favor intente más tarde.");
+        }
+    }
+
+    private function procesarFormulario() {
+        try {
+            if (!isset($_POST['btnguardar'])) return;
+            
+            validarTokenCSRF($_POST['csrf_token'] ?? '');
+            
+            $errores = $this->validarCampos($_POST);
+            if (!empty($errores)) {
+                throw new Exception(implode('<br>', $errores));
+            }
+            
+            $datos = $this->sanitizarDatos($_POST);
+            $this->guardarFalla($datos);
+            
+            $_SESSION['exito'] = "Falla registrada exitosamente!";
+            $this->redirigir();
+            
+        } catch (Exception $e) {
+            $_SESSION['error'] = $e->getMessage();
+            $_SESSION['datos_formulario'] = $_POST;
+            $this->redirigir();
+        }
+    }
+
+    private function validarCampos($post) {
+        $camposRequeridos = [
+            'hora_fecha', 'recibida_ccf', 'reportada_por',
+            'responsable_area', 'metodo_reporte', 'ambiente',
+            'equipo', 'prioridad', 'estado', 'descripcion_falla'
+        ];
+        
+        $errores = [];
+        foreach ($camposRequeridos as $campo) {
+            if (empty($post[$campo])) {
+                $errores[] = "El campo " . ucfirst(str_replace('_', ' ', $campo)) . " es requerido.";
+            }
+        }
+        
+        if (!empty($post['descripcion_falla'])) {
+            $descripcion = trim($post['descripcion_falla']);
+            if (strlen($descripcion) < 2) {
+                $errores[] = "La descripción debe tener al menos 2 caracteres.";
+            }
+            if (!ctype_upper($descripcion[0])) {
+                $errores[] = "La descripción debe comenzar con mayúscula.";
+            }
+        }
+        
+        return $errores;
+    }
+
+    private function sanitizarDatos($post) {
         return [
-            'reportada_por' => $this->modelo->obtenerPersonal(),
-            'metodo_reporte' => $this->modelo->obtenerMetodoReporte(),
-            'ubicacion' => $this->modelo->obtenerUbicacion(),
-            'responsable_area' => $this->modelo->obtenerResponsableArea(),
-            'prioridad' => $this->modelo->obtenerPrioridad(),
-            'id_falla' => $this->modelo->generarIdFalla(),
-            'servicio' => $this->modelo->obtenerServicio($id_servicio) ?: [],
+            'fecha_hora' => date('Y-m-d H:i:s', strtotime($post['hora_fecha'])),
+            'recibida_ccf' => (int)$post['recibida_ccf'],
+            'reportada_por' => (int)$post['reportada_por'],
+            'responsable_area' => (int)$post['responsable_area'],
+            'metodo_reporte' => (int)$post['metodo_reporte'],
+            'ambiente' => (int)$post['ambiente'],
+            'equipo' => (int)$post['equipo'],
+            'prioridad' => (int)$post['prioridad'],
+            'estado' => (int)$post['estado'],
+            'descripcion_falla' => htmlspecialchars($post['descripcion_falla'], ENT_QUOTES, 'UTF-8')
         ];
     }
 
-    // Método para guardar los datos del formulario
-    public function guardarDatos() {
-        if (isset($_POST['btnguardar'])) {
-            // Recoger los datos del formulario
-            error_log("ID Recibida CCF: " . $_POST['recibida_ccf']);
-            $id_falla = $_POST['id_falla'];
-            $fecha_hora = $_POST['hora_fecha'];
-            $recibida_ccf = $_POST['recibida_ccf'];
-            $reportada_por = $_POST['reportada_por'];
-            $responsable_area = $_POST['responsable_area'];
-            $metodo_reporte = $_POST['metodo_reporte'];
-            $ambiente = $_POST['ambiente'];
-            $equipo = $_POST['equipo'];
-            $prioridad = $_POST['prioridad'];
-            $estado = $_POST['estado'];
-            $descripcion_falla = $_POST['descripcion_falla'];
-
-            // Validaciones
-            $errores = [];
+    private function guardarFalla($datos) {
+        try {
+            $this->modelo->beginTransaction();
             
-            // Validar que la descripción empiece con mayúscula
-            if (strlen($descripcion_falla) < 2) {
-                $errores[] = "La descripción de la falla debe tener un mínimo de 2 caracteres.";
-            } elseif (!ctype_upper($descripcion_falla[0])) {
-                $errores[] = "La descripción de la falla debe iniciar con letra mayúscula.";
-            }
-
-            // Si hay errores, mostrar mensajes
-            if (!empty($errores)) {
-                foreach ($errores as $error) {
-                    echo "<script>alert('$error');</script>";
-                }
-            } else {
-                // Intentar insertar en la tabla falla
-                try {
-                    $this->modelo->insertarFalla($id_falla, $prioridad, $estado, $equipo, $recibida_ccf, $fecha_hora,$ambiente, $descripcion_falla, $metodo_reporte);
-
-                    // Insertar en detalles_falla
-                    $this->modelo->insertar_reportada_por($id_falla, $reportada_por, $fecha_hora);
-                    $this->modelo->insertar_responsable_area($id_falla, $responsable_area, $fecha_hora);
-
-                    // Mensaje de éxito
-                    echo "<script>alert('Datos registrados exitosamente.');</script>";
-                } catch (Exception $e) {
-                    // Mensaje de error
-                    echo "<script>alert('Error al registrar los datos: " . $e->getMessage() . "');</script>";
-                }
-            }
+            $id_falla = $this->modelo->generarIdFalla();
             
-           
+            // Insertar falla principal
+            $this->modelo->insertarFalla(
+                $id_falla,
+                $datos['prioridad'],
+                $datos['estado'],
+                $datos['equipo'],
+                $datos['recibida_ccf'],
+                $datos['fecha_hora'],
+                $datos['ambiente'],
+                $datos['descripcion_falla'],
+                $datos['metodo_reporte']
+            );
+            
+            // Insertar relaciones
+            $this->modelo->insertar_reportada_por(
+                $id_falla,
+                $datos['reportada_por'],
+                $datos['fecha_hora']
+            );
+            
+            $this->modelo->insertar_responsable_area(
+                $id_falla,
+                $datos['responsable_area'],
+                $datos['fecha_hora']
+            );
+            
+            $this->modelo->commit();
+            
+        } catch (Exception $e) {
+            $this->modelo->rollBack();
+            throw new Exception("Error al guardar en la base de datos: " . $e->getMessage());
         }
-         // Redirigir a vista_abrir.php
+    }
+    private function obtenerInfoUsuario() {
+        return [
+            'nombre' => $_SESSION['nombre_personal'] ?? 'Usuario no identificado',
+            'perfil' => $_SESSION['nombre_perfil'] ?? 'Sin perfil',
+            'usuario' => $_SESSION['usuario'] ?? 'N/A',
+            'id_usuario' => $_SESSION['id_usuario'] ?? 0,
+            'carnet' => $_SESSION['carnet'] ?? 'N/A',
+            'servicio' => $_SESSION['nombre_servicio'] ?? 'No asignado',
+            'id_servicio' => $_SESSION['id_servicio'] ?? 0
+        ];
         
     }
- 
+private function mostrarVista() {
+    // Generar ID de falla para mostrar en el formulario
+    $id_falla = $this->modelo->generarIdFalla();
+
+    $datosVista = [
+        'id_falla' => $id_falla,
+        'reportada_por' => $this->modelo->obtenerPersonal(),
+        'metodo_reporte' => $this->modelo->obtenerMetodoReporte(),
+        'ubicacion' => $this->modelo->obtenerUbicacion(),
+        'responsable_area' => $this->modelo->obtenerResponsableArea(),
+        'prioridad' => $this->modelo->obtenerPrioridad(),
+        'servicio' => $this->modelo->obtenerServicio($this->id_servicio) ?: [],
+        'informacionUsuario' => $this->obtenerInfoUsuario(),
+        'datosFormulario' => $_SESSION['datos_formulario'] ?? []
+    ];
+    $esVistaSegura = true;
+    unset($_SESSION['datos_formulario']);
+    extract($datosVista);
+    
+    // Usar constante para seguridad
+    define('VISTA_SEGURA', true);
+    include $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/abrir/vista/abrir_falla.php';
 }
-// Asegúrate de salir después de la redirección
+   
 
-// Instancia del controlador
-$controlador = new Controlador($pdo);
-$datos = $controlador->obtenerDatosFormulario();
-$controlador->guardarDatos(); // Llama al método para guardar datos
-include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/abrir/vista/abrir_falla.php'; 
-exit(); 
-?>
+    private function redirigir() {
+        header('Location: ' . $_SERVER['PHP_SELF']);
+        exit();
+    }
 
+    private function manejarError($mensaje) {
+        $_SESSION['error'] = $mensaje;
+        $this->redirigir();
+    }
+}
 
-
+// Ejecución del controlador
+try {
+    $controller = new FallaController($pdo);
+    $controller->handleRequest();
+} catch (Exception $e) {
+    error_log("Error inicial: " . $e->getMessage());
+    die("Error crítico. Por favor contacte al administrador.");
+}

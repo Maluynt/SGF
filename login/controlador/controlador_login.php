@@ -1,81 +1,77 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Inicia una nueva sesión o reanuda una existente basada en la cookie de sesión del usuario.
+// controlador_login.php
 session_start();
-// Incluye el archivo que contiene la conexión a la base de datos.
-include("../../conexion/conexion_bd.php");
-// Incluye el archivo que contiene la definición de la clase Modelo.
-require '../modelo/modelo.php';
+require_once __DIR__ . '/../../conexion/conexion_bd.php';
+require_once __DIR__ . '/../modelo/modelo.php';
 
-// Crea una instancia de la clase Usuario, pasando la conexión a la base de datos.
 $usuarioModel = new Usuario($pdo);
 
-// Verifica si ya existe una sesión de usuario activa.
-if (isset($_SESSION ['usuario'])) {
-    // Si ya hay una sesión, redirige al usuario a una página específica.
-    header("Location:../../Administrador/controlador/controlador.php"); // Debes cambiar "#" por la URL a la que deseas redirigir.
-    exit(); // Detiene la ejecución del script para asegurar la redirección.
-}
-
-// Establece encabezados para evitar que la página se guarde en caché.
-header("Cache-Control: no-cache, no-store, must-revalidate");
-header("Pragma: no-cache");
-header("Expires: 0");
-
-// Verifica si se ha enviado el formulario de inicio de sesión.
-if (!empty($_POST["btningresar"])) {
-    // Verifica si los campos de usuario y contraseña están vacíos.
-    if (empty($_POST["usuario"]) || empty($_POST["password"])) {
-        // Muestra una alerta si los campos están vacíos.
-        echo "<script type='text/javascript'>
-                alert('Algunos campos están vacíos');
-                window.location.href = '../login/index.php'; 
-              </script>";
-        exit(); // Detiene la ejecución del script.
+try {
+    // Validación CSRF
+    if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'])) {
+        throw new Exception('Token de seguridad inválido');
     }
 
-    // Obtiene el usuario y la contraseña del formulario.
-    $usuario = $_POST["usuario"];
-    $clave = $_POST["password"];
-    
-    // Llama al método verificarCredenciales del modelo de usuario para validar las credenciales.
+    // Validar campos vacíos
+    if (empty($_POST['usuario']) || empty($_POST['password'])) {
+        throw new Exception('Complete todos los campos');
+    }
+
+    $usuario = trim($_POST['usuario']);
+    $clave = trim($_POST['password']);
+
+    // Autenticación mejorada
     $datosUsuario = $usuarioModel->verificarCredenciales($usuario, $clave);
-
-    // Verifica si las credenciales son correctas.
-    if ($datosUsuario) {
-        // Guarda los datos del usuario en la sesión.
-        $_SESSION["id_usuario"] = $datosUsuario->id_usuario;
-        #$_SESSION["nombre_usuario"] = $datosUsuario->nombre_usuario;
-        $_SESSION["usuario"] = $datosUsuario->usuario;
-      
-    $_SESSION["id_servicio"] = $datosUsuario->id_servicio; // Nuevo campo
-
     
-
-        // Registra el inicio de sesión en la base de datos.
-        $usuarioModel->registrarLogin($datosUsuario->usuario, 'Inicio');
-
-        // Redirige al usuario a la página de inicio correspondiente a su perfil.
-        switch ($datosUsuario->id_perfil==1) {
-            case 1:
-                header("Location:../../Administrador/vistas/index.php");
-                break;
-           
-            default:
-                // Muestra una alerta si el perfil no es válido.
-                header("Location: /metro/SGF/inicio/controlador/controlador_inicio.php"); // Cambia esta ruta
-           
-                break;
-        }
-        exit(); // Detiene la ejecución del script.
-    } else {
-        // Muestra una alerta si las credenciales son incorrectas.
-        echo "<script type='text/javascript'>
-                alert('Acceso denegado');
-                window.location.href = '../index.php'; 
-              </script>";
+    if (!$datosUsuario) {
+        $usuarioModel->registrarAccion(null, $usuario, 'Intento fallido de acceso');
+        throw new Exception('Credenciales incorrectas');
     }
+
+    // Verificar estructura de datos obtenida
+    if (!property_exists($datosUsuario, 'nombre_perfil')) {
+        error_log("Error crítico: El perfil no está definido para el usuario $usuario");
+        throw new Exception('Error en la configuración del usuario');
+    }
+
+    // Configurar sesión con validación
+  $_SESSION = [
+    "id_usuario" => $datosUsuario->id_usuario,
+    "usuario" => $datosUsuario->usuario,
+    "nombre_perfil" => mb_strtoupper($datosUsuario->nombre_perfil, 'UTF-8'),
+    "nombre_personal" => $datosUsuario->nombre_personal ?? 'Usuario no identificado',
+    "carnet" => $datosUsuario->carnet ?? 'Sin carnet', // Nuevo campo añadido
+    "nombre_servicio" => $datosUsuario->nombre_servicio ?? 'Servicio no asignado',
+    "id_servicio" => $datosUsuario->id_servicio ?? 0,
+    "tiempo_actividad" => time(),
+    "csrf_token" => bin2hex(random_bytes(32))
+];
+    // Registrar acceso exitoso
+    $usuarioModel->registrarAccion(
+        $_SESSION['id_usuario'],
+        $_SESSION['nombre_personal'],
+        'Acceso concedido al sistema'
+    );
+
+    // Redirección segura
+    header("Location: /metro/SGF/" . obtenerRutaSegunPerfil($_SESSION['nombre_perfil']));
+    exit();
+
+} catch (Exception $e) {
+    error_log("Error en controlador_login: " . $e->getMessage());
+    $_SESSION['error'] = $e->getMessage();
+    header("Location: /metro/SGF/login/index.php");
+    exit();
 }
-?>
+
+function obtenerRutaSegunPerfil(string $perfil): string {
+    $rutasValidas = [
+        'ADMINISTRADOR' => 'Administrador/controlador/controlador.php',
+        'INSPECTOR' => 'Administrador/controlador/controlador.php',
+        'COORDINADOR' => 'Administrador/controlador/controlador.php',
+        'CONTROLADOR' => 'Administrador/controlador/controlador.php'
+    ];
+
+    $perfil = mb_strtoupper(trim($perfil), 'UTF-8');
+    return $rutasValidas[$perfil] ?? 'inicio/controlador/controlador_inicio.php';
+}

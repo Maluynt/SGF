@@ -1,59 +1,79 @@
 <?php
-// Definición de la clase Usuario
 class Usuario {
-    // Variable privada para almacenar la conexión a la base de datos
     private $conexion;
 
-    // Constructor de la clase Usuario
     public function __construct($conexion) {
-        // Inicializa la variable de conexión con la conexión proporcionada
         $this->conexion = $conexion;
     }
-
-// En el método verificarCredenciales, modificar la consulta:
-    public function verificarCredenciales($usuario, $password) {
-        // Incluir id_servicio en la selección
-        $stmt = $this->conexion->prepare("SELECT id_usuario, id_perfil, contrasena, id_servicio FROM usuario WHERE usuario = :usuario");
-        $stmt->bindParam(':usuario', $usuario);
-        $stmt->execute();
-        $datos = $stmt->fetch(PDO::FETCH_OBJ);
+    public function verificarCredenciales(string $usuario, string $password): ?object {
+        try {
+            $stmt = $this->conexion->prepare("
+                SELECT 
+                    u.id_usuario,
+                    u.usuario,
+                    u.contrasena,
+                    p.perfil AS nombre_perfil,
+                    s.id_servicio,
+                    s.nombre_servicio,
+                    perso.carnet AS carnet,
+                    perso.nombre_personal
+                FROM usuario u
+                LEFT JOIN perfil p ON u.id_perfil = p.id_perfil
+                LEFT JOIN servicio s ON u.id_servicio = s.id_servicio
+                LEFT JOIN personal perso ON u.id_personal = perso.id_personal
+                WHERE u.usuario = :usuario
+            ");
     
-        if ($datos && password_verify($password, $datos->contrasena)) {
-            return $datos; // Ahora incluye id_servicio
+            $stmt->execute([':usuario' => $usuario]);
+            $datosUsuario = $stmt->fetch(PDO::FETCH_OBJ);
+    
+            // Depuración
+            error_log("Consulta SQL: " . $stmt->queryString);
+            error_log("Resultado de la consulta: " . print_r($datosUsuario, true));
+    
+            if (!$datosUsuario) {
+                error_log("Usuario no encontrado: $usuario");
+                return null;
+            }
+    
+            error_log("Hash almacenado: " . $datosUsuario->contrasena);
+            if (!password_verify($password, $datosUsuario->contrasena)) {
+                error_log("Contraseña incorrecta para: $usuario");
+                return null;
+            }
+    
+            return $datosUsuario;
+        } catch (PDOException $e) {
+            error_log("Error en la base de datos: " . $e->getMessage());
+            return null;
         }
-        return null;
     }
 
-    public function obtenerInformacionUsuario($id_usuario)
-    {
-        $stmt = $this->conexion->prepare("
-            SELECT u.id_usuario, u.usuario, u.id_perfil, u.id_servicio, p.nombre_personal, p.carnet 
-            FROM usuario u
-            INNER JOIN personal p ON u.id_personal = p.id_personal
-            WHERE u.id_usuario = :id_usuario
-        ");
-        $stmt->bindParam(':id_usuario', $id_usuario);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_OBJ);
-    }
-    
-    // Método para registrar la acción de inicio de sesión en la tabla de bitácora
-    public function registrarLogin($nombre_personal, $accion) {
-        // Obtiene la fecha y hora actual
+    public function registrarAccion($id_usuario, $nombre_personal, $accion, $id_detalles_falla = null) {
         $fecha_hora = date('Y-m-d H:i:s');
-        // Consulta SQL para insertar el registro en la bitácora
-        $log_sql = "INSERT INTO bitacora (nombre_personal, fecha_hora, accion) VALUES (:nombre_personal, :fecha_hora, :accion)";
-
-        // Prepara la consulta SQL
-        $log_stmt = $this->conexion->prepare($log_sql);
         
-        // Vincula los parámetros a la consulta preparada
-        $log_stmt->bindParam(':nombre_personal', $nombre_personal);
-        $log_stmt->bindParam(':fecha_hora', $fecha_hora);
-        $log_stmt->bindParam(':accion', $accion);
+        // Validar y truncar datos si superan 50 caracteres
+        $nombre_personal = substr($nombre_personal, 0, 50);
+        $accion = substr($accion, 0, 50);
         
-        // Ejecuta la consulta preparada
-        $log_stmt->execute();
+        try {
+            $log_sql = "INSERT INTO bitacora 
+                        (id_usuario, nombre_personal, fecha_hora, accion, id_detalles_falla) 
+                        VALUES 
+                        (:id_usuario, :nombre_personal, :fecha_hora, :accion, :id_detalles_falla)";
+            
+            $log_stmt = $this->conexion->prepare($log_sql);
+            $log_stmt->bindParam(':id_usuario', $id_usuario);
+            $log_stmt->bindParam(':nombre_personal', $nombre_personal);
+            $log_stmt->bindParam(':fecha_hora', $fecha_hora);
+            $log_stmt->bindParam(':accion', $accion);
+            $log_stmt->bindParam(':id_detalles_falla', $id_detalles_falla);
+            $log_stmt->execute();
+            
+        } catch (PDOException $e) {
+            error_log("Error al registrar en bitácora: " . $e->getMessage());
+            throw new Exception("Error interno al guardar el registro");
+        }
     }
 }
 ?>

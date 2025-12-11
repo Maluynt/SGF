@@ -1,10 +1,11 @@
-<?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/header.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/sidebar.php';
 
+<?php
+// seguridad_vista.php
+if (!isset($esVistaSegura) || $esVistaSegura !== true) {
+    die('Acceso prohibido - El Metro de Los Teques');
+}
+
+$cargarConsultaJS = true; 
 // Configuración de campos visibles
 $allowedFields = [
     'ID' => 'id_falla',
@@ -35,7 +36,7 @@ $activeFilters = [
     'Ambiente' => 'nombre_ambiente',
     'Fecha Reporte' => 'fecha_hora_reporte',
     'ID' => 'id_falla',
-    'Días Abierta' => 'dias_falla'
+    'Estado' => 'nombre_estado'
 ];
 
 // Preparación de filtros
@@ -44,7 +45,13 @@ foreach ($activeFilters as $displayName => $fieldName) {
     $filterOptions[$fieldName] = array_unique(array_column($fallas, $fieldName));
 }
 ?>
+<?php
+define('INCLUIDO_SEGURO', true);
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/sidebar.php';
+?>
 
+</main>
 
 <main class="main-content">
     <div class="container mt-4">
@@ -63,49 +70,47 @@ foreach ($activeFilters as $displayName => $fieldName) {
         <?php endif; ?>
 
         <?php if (!isset($error) || !$error): ?>
-            <!-- SECCIÓN DE BUSQUEDA Y FILTROS -->
-            <div class="filter-container">
-                <div class="search-container mb-3">
-                    <div class="row g-3 align-items-center">
-                        <!-- Campo de búsqueda -->
-                        <div class="col-12 col-md-4">
-                            <input type="text" id="searchInput" 
-                                   placeholder="Buscar en todos los campos..."
-                                   class="form-control">
-                        </div>
-                        
-                        <!-- Botones -->
-                        <div class="col-12 col-md-auto">
-                            <div class="d-flex gap-2 flex-wrap">
-                                <button class="btn btn-outline-secondary" id="reloadPage"
-                                        title="Recargar tabla completa" type="button">
-                                    <i class="fas fa-sync-alt"></i> Restablecer
-                                </button>
-                                <button class="btn btn-danger" id="generatePdf">
-                                    <i class="fas fa-file-pdf"></i> Generar PDF
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Fechas -->
-                        <div class="col-12 col-md-4">
-                            <div class="input-group">
-                                <input type="date" id="fechaInicio" class="form-control">
-                                <span class="input-group-text">a</span>
-                                <input type="date" id="fechaFin" class="form-control">
-                            </div>
-                        </div>
+
+              <div class="filter-container">
+                <!-- Botón PDF separado -->
+                <div class="row mb-4">
+                    <div class="col-12 text-end">
+                        <button class="btn btn-danger btn-lg" id="generatePdf">
+                            <i class="fas fa-file-pdf me-2"></i> Generar Reporte PDF
+                        </button>
                     </div>
                 </div>
+            <!-- SECCIÓN DE BUSQUEDA Y FILTROS -->
+            <div class="filter-container">
 
-                <!-- Filtros desplegables -->
-                <div class="filter-grid row g-2 mb-3">
+                <div class="search-container mb-3 d-flex align-items-center gap-2">
+
+                    <input type="text" id="searchInput"
+                        placeholder="Buscar en todos los campos..."
+                        class="form-control flex-grow-1">
+                    <button class="btn btn-outline-secondary" id="reloadPage"
+                        title="Recargar tabla completa" type="button">
+                        <i class="fas fa-sync-alt"></i> Restablecer
+                    </button>
+
+                    <div class="col-md-4">
+                        <input type="date" id="fechaInicio" class="form-control" placeholder="Fecha inicio">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="date" id="fechaFin" class="form-control" placeholder="Fecha fin">
+                    </div>
+
+
+                </div>
+
+                <div class="filter-grid">
                     <?php foreach ($activeFilters as $displayName => $fieldName): ?>
-                        <div class="filter-group col-6 col-md-4 col-lg-3">
-                            <select class="form-select" data-column="<?= $fieldName ?>">
+                        <div class="filter-group">
+                            <select class="filter-select form-control" data-column="<?= $fieldName ?>">
                                 <option value=""><?= $displayName ?></option>
                                 <?php foreach ($filterOptions[$fieldName] as $value): ?>
-                                    <option value="<?= htmlspecialchars($value) ?>">
+                                    <option value="<?= htmlspecialchars($value) ?>"
+                                        <?= ($fieldName === 'nombre_estado' && $value === 'Abierta') ? 'selected' : '' ?>>
                                         <?= htmlspecialchars($value) ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -113,12 +118,14 @@ foreach ($activeFilters as $displayName => $fieldName) {
                         </div>
                     <?php endforeach; ?>
                 </div>
-            </div>
+
+
 
             <!-- TABLA -->
             <div class="table-responsive-lg">
                 <table class="table table-hover table-striped">
                     <thead class="thead-dark">
+                        
                         <tr>
                             <th class="align-middle sticky-header">Acciones</th>
                             <?php foreach ($allowedFields as $displayName => $fieldName): ?>
@@ -131,12 +138,11 @@ foreach ($activeFilters as $displayName => $fieldName) {
                     <tbody id="tableBody">
                         <?php foreach ($fallas as $falla): ?>
                             <tr>
-                                <td class="align-middle">
-                                    <a href="/metro/SGF/consulta/vista/editar_falla.php?id=<?= $falla['id_falla'] ?>"
-                                        class="btn btn-sm btn-outline-primary">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                </td>
+                            <td class="align-middle">
+                                    <a href="/metro/SGF/reporte/controlador/controlador_editar.php?id=<?= htmlspecialchars($falla['id_falla']) ?>" 
+                                    class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-edit"></i>
+                                    </a></td>
                                 <?php foreach ($allowedFields as $displayName => $fieldName): ?>
                                     <td class="align-middle">
                                         <?php
@@ -164,8 +170,13 @@ foreach ($activeFilters as $displayName => $fieldName) {
             </div>
         <?php endif; ?>
     </div>
-
-    <script src="/metro/SGF/consulta/js/script.js"></script>
+ <script src="/metro/sgf/reporte/js/js_pdf.js"></script>
 </main>
 
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/footer.php'; ?>
+
+
+
+
+
+

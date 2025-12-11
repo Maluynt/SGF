@@ -1,14 +1,15 @@
-<?php if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+
+<?php
+// seguridad_vista.php
+if (!isset($esVistaSegura) || $esVistaSegura !== true) {
+    die('Acceso prohibido - El Metro de Los Teques');
 }
+
 ?>
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/header.php'; ?>
+<?php define('INCLUIDO_SEGURO', true);
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/header.php'; 
 
-
-
-
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/sidebar.php'; ?>
-
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/inicio/partials/sidebar.php'; ?>
 
 <main class="main-content">
 
@@ -40,7 +41,7 @@
                                     <?= htmlspecialchars($ubicacion['ubicacion']) ?>
                                 </option>
                             <?php endforeach; ?>
-                        </select>jg
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -52,7 +53,10 @@
                         <button name="btnregistrar" class="btn btn-primary" type="submit">
                             REGISTRAR
                         </button>
-                        <a href="../inicio/inicio.php" class="btn btn-secondary">REGRESAR</a>
+                        <a href="/metro/SGF/inicio/controlador/controlador_inicio.php"
+                                class="btn btn-secondary">
+                                <i class="fas fa-times me-2"></i>Cancelar
+                            </a>
                     </div>
                 </form>
             

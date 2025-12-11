@@ -1,79 +1,131 @@
+<?php
+session_start(); // ✅ ¡Sesión iniciada primero!
+
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <title>Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso al Sistema</title>
+    
+    <!-- Librerías locales -->
+    <link rel="stylesheet" href="/metro/SGF/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/metro/SGF/assets/vendor/components/font-awesome/css/all.min.css">
+    
     <style>
-        .input-div {
-            position: relative; /* Para posicionar los iconos */
-            margin-bottom: 20px; /* Espacio entre campos */
+        :root {
+            --color-primario: #2c3e50;
+            --color-secundario: #dc3545;
+            --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        .input {
-            width: 100%;
-            padding: 10px 10px 10px 40px; /* Espaciado interno para evitar superposición con el icono */
-            box-sizing: border-box; /* Incluye padding en el ancho total */
+        
+        .login-container {
+            max-width: 400px;
+            margin: 5vh auto;
+            padding: 2rem;
+            border-radius: 10px;
+            background: #f8f9fa;
+            box-shadow: var(--sombra);
         }
-
-        .i {
+        
+        .login-logo {
+            width: 180px;
+            margin: 0 auto 2rem;
+            display: block;
+        }
+        
+        .input-icon {
             position: absolute;
-            left: 10px; /* Espacio desde el borde izquierdo */
-            top: 50%; /* Centra verticalmente */
-            transform: translateY(-50%); /* Ajuste para centrar el icono */
-            color: #888; /* Color del icono */
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-primario);
+        }
+        
+        .btn-metro {
+            background: var(--color-secundario);
+            border: none;
+            padding: 12px 0;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-metro:hover {
+            opacity: 0.9;
         }
     </style>
-    <script>
-        // Evitar que el usuario use el botón "Atrás" del navegador
-        window.history.pushState(null, '', window.location.href);
-        window.onpopstate = function() {
-            alert("No puedes volver a la página anterior.");
-            window.history.pushState(null, '', window.location.href);
-        };
-
-        function vista() {
-            var passwordInput = document.querySelector('input[name="password"]');
-            var verPasswordIcon = document.getElementById('verPassword');
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                verPasswordIcon.classList.remove('fa-eye');
-                verPasswordIcon.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = "password";
-                verPasswordIcon.classList.remove('fa-eye-slash');
-                verPasswordIcon.classList.add('fa-eye');
-            }
-        }
-    </script>
 </head>
-<body>
-<div class="container">
-    <img class="avatar" src="../img/logo_mlte.png" alt="logo de usuario"><br>
-    <form method="post" action="controlador/controlador_login.php">
-        <div class="input-div">
-            <div class="i">
-                <i class="fas fa-user"></i>
-            </div>
-            <input type="text" class="input" name="usuario" placeholder="Usuario" required>
-        </div>
-        <div class="input-div">
-            <div class="i">
-                <i class="fas fa-lock"></i>
-            </div>
-            <input type="password" class="input" name="password" placeholder="Contraseña" required>
-            <div class="view">
-                <i class="fas fa-eye" onclick="vista()" id="verPassword"></i>
-            </div>
-        </div>
-<button name="btningresar" type="submit" value="INICIAR SECION">ENTRAR</button>
-        <button name="btningresar" type="submit">ENTRAR</button>
-        <a class="enlace" href="recuperar_contraseña.php">¿Olvidó su contraseña?</a>
+<body class="bg-light">
 
+<div class="login-container">
+    <img src="/metro/SGF/img/logo_mlte.png" alt="Logo Metro" class="login-logo">
+    
+    <?php if(isset($_SESSION['error'])): ?>
+        <div class="alert alert-danger alert-dismissible fade show">
+            <?= $_SESSION['error'] ?>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+
+    <form method="POST" action="/metro/SGF/login/controlador/controlador_login.php">
+    <input type="hidden" 
+           name="csrf_token" 
+           value="<?= $_SESSION['csrf_token'] ?? '' ?>">
+        <div class="form-group position-relative mb-4">
+            <i class="fas fa-user input-icon"></i>
+            <input type="text" 
+                   class="form-control pl-5" 
+                   name="usuario" 
+                   placeholder="Usuario"
+                   required
+                   autofocus>
+        </div>
+
+        <div class="form-group position-relative mb-4">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" 
+                   class="form-control pl-5" 
+                   name="password" 
+                   placeholder="Contraseña" 
+                   required
+                   id="password">
+            <i class="fas fa-eye input-icon" 
+               style="right: 15px; left: auto; cursor: pointer;" 
+               id="togglePassword"></i>
+        </div>
+
+        <button type="submit" 
+                name="btningresar" 
+                class="btn btn-metro btn-block text-white">
+            INGRESAR
+        </button>
+        <a class="enlace" href="recuperar_contraseña.php">¿Olvidó su contraseña?</a>
     </form>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
+    
+    if(toggle && password) {
+        toggle.addEventListener('click', () => {
+            const type = password.type === 'password' ? 'text' : 'password';
+            password.type = type;
+            toggle.classList.toggle('fa-eye-slash');
+        });
+    }
+});
+</script>
+
+<!-- Scripts locales -->
+<script src="/metro/SGF/assets/js/jquery-3.6.0.min.js"></script>
+<script src="/metro/SGF/assets/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

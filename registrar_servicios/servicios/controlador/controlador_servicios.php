@@ -1,9 +1,10 @@
 <?php
 // controlador_servicios.php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/controlador_usuario.php'; 
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/logout/auth.php';
+verificarAutenticacion();
+
+
 
 include("../../../conexion/conexion_bd.php");
 include("../modelo/modelo_servicios.php");
@@ -11,15 +12,7 @@ $informacionUsuario = [
     'servicio' => $_SESSION['nombre_servicio'] ?? 'No asignado',
     'id_servicio' => $_SESSION['id_servicio'] ?? ''
 ];
-$informacionUsuario = [
-    'nombre' => $datosUsuario->nombre_personal, // Asegúrate que esta propiedad existe
-    'perfil' => $datosUsuario->nombre_perfil,
-    'usuario' => $datosUsuario->usuario,
-    'id_usuario' => $datosUsuario->id_usuario,
-    'carnet' => $datosUsuario->carnet,
-    'servicio' => $datosUsuario->nombre_servicio
-   
-];
+
 
 try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['btnregistrar'])) {
@@ -48,6 +41,7 @@ try {
     header("Location: /metro/SGF/registrar_servicios/servicios/controlador/controlador_servicios.php");
     exit();
 }
+$esVistaSegura = true; // Bandera de seguridad
 include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/registrar_servicios/servicios/vista/vista_servicios.php';
 
 ?>

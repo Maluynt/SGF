@@ -1,47 +1,49 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/logout/auth.php';
+verificarAutenticacion();
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/conexion/conexion_bd.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/consulta/modelo/modelo_consulta.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/reporte/modelo/modelo_consulta.php';
 
 
-class FallaControl {
+class FallaControl
+{
     private $model;
 
-    public function __construct($pdo) {
+    public function __construct($pdo)
+    {
         try {
             $this->model = new FallaModel($pdo);
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             error_log("Error al crear modelo: " . $e->getMessage());
             $this->mostrarError("Error interno. Contacte al administrador.");
         }
     }
 
-    public function mostrarFallas() {
+    public function mostrarFallas()
+    {
         try {
             $fallas = $this->model->obtenerFallasCompletas();
-            
+
             // Verificar resultados
             if (empty($fallas)) {
                 $_SESSION['info'] = "No hay fallas registradas actualmente";
             }
-            
+
             // Configurar parámetros para la vista
             $this->cargarVista($fallas);
-
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             error_log("Error de base de datos: " . $e->getMessage());
             $this->mostrarError("Error técnico al obtener datos. Código: DB-001");
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             error_log("Error general: " . $e->getMessage());
             $this->mostrarError($e->getMessage());
         }
     }
 
-    private function cargarVista($fallas) {
+    private function cargarVista($fallas)
+    {
         // Configurar campos y filtros
         $allowedFields = [
             'ID' => 'id_falla',
@@ -49,13 +51,17 @@ class FallaControl {
             'Prioridad' => 'nombre_prioridad',
             'Estado' => 'nombre_estado',
             'Días Abierta' => 'dias_falla',  // Campo calculado
-            // ... resto de campos
+
         ];
 
         $activeFilters = [
             'Equipo' => 'nombre_equipo',
             'Subsistema' => 'nombre_subsistema',
-            // ... resto de filtros
+            'Servicio' => 'nombre_servicio',
+            'Ambiente' => 'nombre_ambiente',
+            'Fecha Reporte' => 'fecha_hora_reporte',
+            'ID' => 'id_falla',
+            'Estado' => 'nombre_estado'
         ];
 
         // Preparar filtros
@@ -65,12 +71,14 @@ class FallaControl {
         }
 
         // Incluir vista con todos los parámetros necesarios
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/consulta/vista/vista_consulta.php';
+        $esVistaSegura = true; // Bandera de seguridad
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/reporte/vista/vista_consulta.php';
     }
 
-    private function mostrarError($mensaje) {
+    private function mostrarError($mensaje)
+    {
         $_SESSION['error'] = $mensaje;
-        header("Location: /metro/SGF/consulta/vista/vista_consulta.php");
+        header("Location: /metro/SGF/reporte/vista/vista_consulta.php");
         exit();
     }
 }

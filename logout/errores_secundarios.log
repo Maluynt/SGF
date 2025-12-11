@@ -1,0 +1,544 @@
+[21-Mar-2025 23:39:12 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[21-Mar-2025 23:39:13 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[21-Mar-2025 23:41:45 Europe/Berlin] Intento de acceso no autorizado. Usuario: 2, Perfil: 
+[21-Mar-2025 23:41:45 Europe/Berlin] Error crítico: Acceso reservado a administradores
+[21-Mar-2025 23:42:31 Europe/Berlin] Intento de acceso no autorizado. Usuario: 2, Perfil: 
+[21-Mar-2025 23:42:31 Europe/Berlin] Error crítico: Acceso reservado a administradores
+[22-Mar-2025 00:23:09 Europe/Berlin] Sesión expirada: Usuario 2 (Inspector)
+[22-Mar-2025 00:27:22 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[22-Mar-2025 00:27:23 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[22-Mar-2025 00:27:35 Europe/Berlin] Intento de acceso no autorizado. Usuario: 1, Perfil: ADMINISTRADOR
+[22-Mar-2025 00:27:35 Europe/Berlin] Error crítico: Acceso reservado a personal autorizado
+[22-Mar-2025 00:27:50 Europe/Berlin] Intento de acceso no autorizado. Usuario: 1, Perfil: ADMINISTRADOR
+[22-Mar-2025 00:27:50 Europe/Berlin] Error crítico: Acceso reservado a personal autorizado
+[22-Mar-2025 00:28:25 Europe/Berlin] Intento de acceso no autorizado. Usuario: 1, Perfil: ADMINISTRADOR
+[22-Mar-2025 00:28:25 Europe/Berlin] Error crítico: Acceso reservado a personal autorizado
+[22-Mar-2025 00:28:28 Europe/Berlin] Intento de acceso no autorizado. Usuario: 1, Perfil: ADMINISTRADOR
+[22-Mar-2025 00:28:28 Europe/Berlin] Error crítico: Acceso reservado a personal autorizado
+[22-Mar-2025 00:28:33 Europe/Berlin] Intento de acceso no autorizado. Usuario: 1, Perfil: ADMINISTRADOR
+[22-Mar-2025 00:28:33 Europe/Berlin] Error crítico: Acceso reservado a personal autorizado
+[22-Mar-2025 00:28:43 Europe/Berlin] Intento de acceso no autorizado. Usuario: 1, Perfil: ADMINISTRADOR
+[22-Mar-2025 00:28:43 Europe/Berlin] Error crítico: Acceso reservado a personal autorizado
+[22-Mar-2025 00:28:45 Europe/Berlin] Intento de acceso no autorizado. Usuario: 1, Perfil: ADMINISTRADOR
+[22-Mar-2025 00:28:45 Europe/Berlin] Error crítico: Acceso reservado a personal autorizado
+[22-Mar-2025 03:01:38 Europe/Berlin] Sesión expirada: Usuario 1 (ADMINISTRADOR)
+[22-Mar-2025 03:12:17 Europe/Berlin] Error al registrar en bitácora: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  inserción o actualización en la tabla «bitacora» viola la llave foránea «fk_bitacora_falla»
+DETAIL:  La llave (id_detalles_falla)=(202503008) no está presente en la tabla «falla».
+[22-Mar-2025 03:12:17 Europe/Berlin] Error crítico en auth: Error interno al guardar el registro
+[22-Mar-2025 03:22:42 Europe/Berlin] Error al registrar en bitácora: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  inserción o actualización en la tabla «bitacora» viola la llave foránea «fk_bitacora_falla»
+DETAIL:  La llave (id_detalles_falla)=(202503008) no está presente en la tabla «falla».
+[22-Mar-2025 03:22:42 Europe/Berlin] Error crítico en auth: Error interno al guardar el registro
+[22-Mar-2025 03:25:40 Europe/Berlin] Error al registrar en bitácora: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  inserción o actualización en la tabla «bitacora» viola la llave foránea «fk_bitacora_falla»
+DETAIL:  La llave (id_detalles_falla)=(202503008) no está presente en la tabla «falla».
+[22-Mar-2025 03:25:40 Europe/Berlin] Error crítico en auth: Error interno al guardar el registro
+[22-Mar-2025 03:37:05 Europe/Berlin] Error al registrar en bitácora: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  inserción o actualización en la tabla «bitacora» viola la llave foránea «fk_bitacora_falla»
+DETAIL:  La llave (id_detalles_falla)=(202503008) no está presente en la tabla «falla».
+[22-Mar-2025 03:37:05 Europe/Berlin] Error crítico en auth: Error interno al guardar el registro
+[22-Mar-2025 03:42:28 Europe/Berlin] Error al registrar en bitácora: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  inserción o actualización en la tabla «bitacora» viola la llave foránea «fk_bitacora_falla»
+DETAIL:  La llave (id_detalles_falla)=(202503008) no está presente en la tabla «falla».
+[22-Mar-2025 03:42:28 Europe/Berlin] Error crítico en auth: Error interno al guardar el registro
+[22-Mar-2025 03:48:54 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 03:48:54 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 03:49:20 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php on line 88
+[22-Mar-2025 03:49:42 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 03:49:42 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 03:49:54 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 03:49:54 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 21:37:11 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[22-Mar-2025 21:37:11 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[22-Mar-2025 21:37:31 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 21:37:31 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 21:38:31 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php on line 88
+[22-Mar-2025 21:38:31 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Modelo::insertarFalla(), 8 passed in C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php on line 103 and exactly 9 expected in C:\xampp\htdocs\metro\SGF\abrir\modelo\Modelo.php:117
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(103): Modelo->insertarFalla(3, 3, 6, 1, '2025-03-22 21:3...', 1, 'Deteriorado', 3)
+#1 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(159): Controlador->guardarDatos()
+#2 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\modelo\Modelo.php on line 117
+[22-Mar-2025 21:50:20 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 21:50:20 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 21:50:25 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 21:50:25 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 21:50:26 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 21:50:26 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 21:50:27 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 21:50:27 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 21:50:27 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 21:50:27 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 21:51:30 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 21:51:30 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 21:51:47 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php on line 88
+[22-Mar-2025 21:52:07 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 43
+[22-Mar-2025 21:52:07 Europe/Berlin] PHP Warning:  Undefined array key "id_falla" in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 48
+[22-Mar-2025 21:58:08 Europe/Berlin] Error al guardar falla: El campo hora_fecha es requerido.
+[22-Mar-2025 22:06:56 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php on line 88
+[22-Mar-2025 22:16:58 Europe/Berlin] Error al guardar falla: La descripción debe comenzar con mayúscula.
+[22-Mar-2025 22:20:05 Europe/Berlin] PHP Deprecated:  Constant FILTER_SANITIZE_STRING is deprecated in C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php on line 88
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 22:47:50 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:138
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(149): include_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 23:25:23 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:25:23 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:25:23 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:25:23 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 23:25:23 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 23:26:50 Europe/Berlin] Error Controlador: El campo recibida_ccf es requerido.<br>El campo reportada_por es requerido.<br>El campo responsable_area es requerido.<br>El campo metodo_reporte es requerido.<br>El campo ambiente es requerido.<br>El campo equipo es requerido.<br>El campo prioridad es requerido.<br>El campo descripcion_falla es requerido.
+[22-Mar-2025 23:26:55 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:26:55 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:26:55 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:26:55 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 23:26:55 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 23:26:59 Europe/Berlin] Error Controlador: El campo recibida_ccf es requerido.<br>El campo reportada_por es requerido.<br>El campo responsable_area es requerido.<br>El campo metodo_reporte es requerido.<br>El campo ambiente es requerido.<br>El campo equipo es requerido.<br>El campo prioridad es requerido.<br>El campo descripcion_falla es requerido.
+[22-Mar-2025 23:27:24 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:27:24 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:27:24 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:27:24 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 23:27:24 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 23:29:16 Europe/Berlin] Error al guardar falla: El campo reportada_por es requerido.<br>El campo responsable_area es requerido.<br>El campo metodo_reporte es requerido.<br>El campo ambiente es requerido.<br>El campo equipo es requerido.<br>El campo prioridad es requerido.<br>El campo descripcion_falla es requerido.
+[22-Mar-2025 23:37:49 Europe/Berlin] Error al guardar falla: El campo reportada_por es requerido.<br>El campo responsable_area es requerido.<br>El campo metodo_reporte es requerido.<br>El campo ambiente es requerido.<br>El campo equipo es requerido.<br>El campo prioridad es requerido.<br>El campo descripcion_falla es requerido.
+[22-Mar-2025 23:38:01 Europe/Berlin] Error al guardar falla: El campo reportada_por es requerido.<br>El campo responsable_area es requerido.<br>El campo metodo_reporte es requerido.<br>El campo ambiente es requerido.<br>El campo equipo es requerido.<br>El campo prioridad es requerido.<br>El campo descripcion_falla es requerido.
+[22-Mar-2025 23:38:30 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:38:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:38:30 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:38:30 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 23:38:30 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 23:38:31 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:38:31 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:38:31 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 73
+[22-Mar-2025 23:38:31 Europe/Berlin] PHP Warning:  Undefined variable $informacionUsuario in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 23:38:31 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 76
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 23:39:45 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:138
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(22): include_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 23:40:17 Europe/Berlin] Error al guardar falla: El campo reportada_por es requerido.<br>El campo responsable_area es requerido.<br>El campo metodo_reporte es requerido.<br>El campo ambiente es requerido.<br>El campo equipo es requerido.<br>El campo prioridad es requerido.<br>El campo descripcion_falla es requerido.
+[22-Mar-2025 23:42:47 Europe/Berlin] Error al guardar falla: El campo reportada_por es requerido.<br>El campo responsable_area es requerido.<br>El campo metodo_reporte es requerido.<br>El campo ambiente es requerido.<br>El campo equipo es requerido.<br>El campo prioridad es requerido.<br>El campo descripcion_falla es requerido.
+[22-Mar-2025 23:43:11 Europe/Berlin] Error al guardar falla: El campo reportada_por es requerido.<br>El campo responsable_area es requerido.<br>El campo metodo_reporte es requerido.<br>El campo ambiente es requerido.<br>El campo equipo es requerido.<br>El campo prioridad es requerido.<br>El campo descripcion_falla es requerido.
+[22-Mar-2025 23:53:00 Europe/Berlin] Error al guardar falla: El campo reportada_por es requerido.<br>El campo responsable_area es requerido.<br>El campo metodo_reporte es requerido.<br>El campo ambiente es requerido.<br>El campo equipo es requerido.<br>El campo prioridad es requerido.<br>El campo descripcion_falla es requerido.
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:01:43 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:138
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(156): include()
+#1 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(25): FallaController->mostrarVista()
+#2 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(185): FallaController->handleRequest()
+#3 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:01:52 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:138
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(156): include()
+#1 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(25): FallaController->mostrarVista()
+#2 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(185): FallaController->handleRequest()
+#3 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:03:00 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:138
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(167): include()
+#1 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(25): FallaController->mostrarVista()
+#2 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(186): FallaController->handleRequest()
+#3 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:03:01 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:138
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(167): include()
+#1 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(25): FallaController->mostrarVista()
+#2 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(186): FallaController->handleRequest()
+#3 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:03:57 Europe/Berlin] PHP Warning:  require_once(C:/xampp/htdocs/metro/SGF/abrir/controlador/controlador_falla.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 7
+[23-Mar-2025 00:03:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:/xampp/htdocs/metro/SGF/abrir/controlador/controlador_falla.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:7
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(167): include()
+#1 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(25): FallaController->mostrarVista()
+#2 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(186): FallaController->handleRequest()
+#3 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 7
+[23-Mar-2025 00:03:59 Europe/Berlin] PHP Warning:  require_once(C:/xampp/htdocs/metro/SGF/abrir/controlador/controlador_falla.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 7
+[23-Mar-2025 00:03:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:/xampp/htdocs/metro/SGF/abrir/controlador/controlador_falla.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:7
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(167): include()
+#1 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(25): FallaController->mostrarVista()
+#2 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(186): FallaController->handleRequest()
+#3 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 7
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 00:04:29 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:138
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(167): include()
+#1 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(25): FallaController->mostrarVista()
+#2 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(186): FallaController->handleRequest()
+#3 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 19:08:18 America/Caracas] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 19:08:18 America/Caracas] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:138
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(171): include()
+#1 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(25): FallaController->mostrarVista()
+#2 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(189): FallaController->handleRequest()
+#3 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 86
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 99
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 116
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  Undefined variable $datos in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 19:08:22 America/Caracas] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[22-Mar-2025 19:08:22 America/Caracas] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php:138
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(171): include()
+#1 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(25): FallaController->mostrarVista()
+#2 C:\xampp\htdocs\metro\SGF\abrir\controlador\Controlador.php(189): FallaController->handleRequest()
+#3 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\abrir\vista\abrir_falla.php on line 138
+[23-Mar-2025 17:40:42 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 18:14:41 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 18:55:07 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 18:55:21 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 18:55:30 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 18:56:00 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 19:03:01 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 19:03:24 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 19:03:57 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 19:04:02 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 19:05:10 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 19:07:10 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 19:07:19 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 19:12:31 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 19:12:31 Europe/Berlin] Error crítico en auth: Call to undefined function redirigirLogin()
+[23-Mar-2025 19:12:31 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 142
+[23-Mar-2025 19:12:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function redirigirLogin() in C:\xampp\htdocs\metro\SGF\logout\auth.php:176
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\Administrador\controlador\controlador.php(3): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 176
+[23-Mar-2025 19:13:27 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 19:13:27 Europe/Berlin] Error crítico en auth: Call to undefined function redirigirLogin()
+[23-Mar-2025 19:13:27 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 142
+[23-Mar-2025 19:13:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function redirigirLogin() in C:\xampp\htdocs\metro\SGF\logout\auth.php:176
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\Administrador\controlador\controlador.php(3): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 176
+[23-Mar-2025 19:13:28 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 19:13:28 Europe/Berlin] Error crítico en auth: Call to undefined function redirigirLogin()
+[23-Mar-2025 19:13:28 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 142
+[23-Mar-2025 19:13:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function redirigirLogin() in C:\xampp\htdocs\metro\SGF\logout\auth.php:176
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\Administrador\controlador\controlador.php(3): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 176
+[23-Mar-2025 19:13:28 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 19:13:28 Europe/Berlin] Error crítico en auth: Call to undefined function redirigirLogin()
+[23-Mar-2025 19:13:28 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 142
+[23-Mar-2025 19:13:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function redirigirLogin() in C:\xampp\htdocs\metro\SGF\logout\auth.php:176
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\Administrador\controlador\controlador.php(3): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 176
+[23-Mar-2025 19:13:31 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 19:13:31 Europe/Berlin] Error crítico en auth: Call to undefined function redirigirLogin()
+[23-Mar-2025 19:13:31 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 142
+[23-Mar-2025 19:13:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function redirigirLogin() in C:\xampp\htdocs\metro\SGF\logout\auth.php:176
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\Administrador\controlador\controlador.php(3): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 176
+[23-Mar-2025 19:13:50 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 19:13:50 Europe/Berlin] Error crítico en auth: Call to undefined function redirigirLogin()
+[23-Mar-2025 19:13:50 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 142
+[23-Mar-2025 19:13:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function redirigirLogin() in C:\xampp\htdocs\metro\SGF\logout\auth.php:176
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\Administrador\controlador\controlador.php(3): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 176
+[23-Mar-2025 19:14:00 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 19:14:00 Europe/Berlin] Error crítico en auth: Call to undefined function redirigirLogin()
+[23-Mar-2025 19:14:00 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 142
+[23-Mar-2025 19:14:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function redirigirLogin() in C:\xampp\htdocs\metro\SGF\logout\auth.php:176
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\inicio\controlador\controlador_inicio.php(11): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 176
+[23-Mar-2025 19:15:16 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 19:15:16 Europe/Berlin] Error crítico en auth: Call to undefined function redirigirLogin()
+[23-Mar-2025 19:15:16 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 142
+[23-Mar-2025 19:15:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function redirigirLogin() in C:\xampp\htdocs\metro\SGF\logout\auth.php:176
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\inicio\controlador\controlador_inicio.php(11): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 176
+[23-Mar-2025 19:18:01 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 19:20:56 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 19:22:00 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 19:27:46 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 19:50:41 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:50:41 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:50:42 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:50:42 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:50:53 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/abrir/controlador/Controlador.php
+[23-Mar-2025 19:51:31 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:51:31 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:51:31 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:51:31 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:52:28 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:52:28 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:52:28 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:52:28 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\subsistema\controlador\controlador_subsistema.php on line 7
+[23-Mar-2025 19:54:45 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\equipo\controlador\controlador_equipo.php on line 5
+[23-Mar-2025 19:54:45 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\equipo\controlador\controlador_equipo.php on line 5
+[23-Mar-2025 21:47:17 Europe/Berlin] Sesión expirada: Usuario 2 (INSPECTOR)
+[23-Mar-2025 21:53:32 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 21:53:43 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 21:54:11 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 21:54:45 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 21:56:55 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:02:08 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:12:44 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:12:53 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:13:04 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:14:58 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:15:35 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:15:58 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:16:09 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:19:09 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:21:39 Europe/Berlin] Campo faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/consulta/controlador/controlador_consulta.php
+[23-Mar-2025 22:23:51 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:26:08 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:26:26 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:28:48 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:28:56 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:33:32 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 11
+[23-Mar-2025 22:33:32 Europe/Berlin] Redirigiendo al perfil: 
+[23-Mar-2025 22:33:32 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:33:32 Europe/Berlin] PHP Warning:  Undefined variable $rutas in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:33:32 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:33:32 Europe/Berlin] Ruta destino: 
+[23-Mar-2025 22:33:32 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:34:27 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 11
+[23-Mar-2025 22:34:27 Europe/Berlin] Redirigiendo al perfil: 
+[23-Mar-2025 22:34:27 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:34:27 Europe/Berlin] PHP Warning:  Undefined variable $rutas in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:34:27 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:34:27 Europe/Berlin] Ruta destino: 
+[23-Mar-2025 22:34:27 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:43:44 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 11
+[23-Mar-2025 22:43:44 Europe/Berlin] Redirigiendo al perfil: 
+[23-Mar-2025 22:43:44 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:43:44 Europe/Berlin] PHP Warning:  Undefined variable $rutas in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:43:44 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:43:44 Europe/Berlin] Ruta destino: 
+[23-Mar-2025 22:43:44 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:44:11 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 11
+[23-Mar-2025 22:44:11 Europe/Berlin] Redirigiendo al perfil: 
+[23-Mar-2025 22:44:11 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:44:11 Europe/Berlin] PHP Warning:  Undefined variable $rutas in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:44:11 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:44:11 Europe/Berlin] Ruta destino: 
+[23-Mar-2025 22:44:11 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:44:35 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 11
+[23-Mar-2025 22:44:35 Europe/Berlin] Redirigiendo al perfil: 
+[23-Mar-2025 22:44:35 Europe/Berlin] PHP Warning:  Undefined variable $perfil in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:44:35 Europe/Berlin] PHP Warning:  Undefined variable $rutas in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:44:35 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 12
+[23-Mar-2025 22:44:35 Europe/Berlin] Ruta destino: 
+[23-Mar-2025 22:44:35 Europe/Berlin] Campo faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:45:10 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:45:20 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:47:08 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:49:35 Europe/Berlin] Campo faltante: nombre_perfil
+[23-Mar-2025 22:50:02 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:51:24 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 22:52:42 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 23:04:15 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 23:04:59 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 23:05:29 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/inicio/controlador/controlador_inicio.php
+[23-Mar-2025 23:11:14 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 23:22:14 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 23:23:50 Europe/Berlin] Intento de acceso no autenticado desde IP: ::1
+[23-Mar-2025 23:25:38 Europe/Berlin] Campo de sesión faltante: nombre_perfil | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 23:34:35 Europe/Berlin] Campo de sesión faltante: nombre_personal | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 23:35:44 Europe/Berlin] Campo de sesión faltante: nombre_personal | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 23:35:57 Europe/Berlin] Campo de sesión faltante: nombre_personal | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 23:35:57 Europe/Berlin] Falla crítica: Call to undefined function redirigirLogin()
+[23-Mar-2025 23:35:57 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 137
+[23-Mar-2025 23:35:57 Europe/Berlin] Campo de sesión faltante: id_usuario | IP: ::1 | Ruta: /metro/SGF/Administrador/controlador/controlador.php
+[23-Mar-2025 23:35:57 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 137
+[23-Mar-2025 23:35:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function redirigirLogin() in C:\xampp\htdocs\metro\SGF\logout\auth.php:46
+Stack trace:
+#0 C:\xampp\htdocs\metro\SGF\Administrador\controlador\controlador.php(4): verificarAutenticacion()
+#1 {main}
+  thrown in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 46
+[24-Mar-2025 00:03:13 Europe/Berlin] ALERTA DE SEGURIDAD: Campo requerido faltante: Identificación de usuario | {"IP":"::1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.0.0 Safari\/537.36","Ruta":"\/metro\/SGF\/inicio\/controlador\/controlador_inicio.php"}
+[24-Mar-2025 00:03:14 Europe/Berlin] ALERTA DE SEGURIDAD: Campo requerido faltante: Identificación de usuario | {"IP":"::1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.0.0 Safari\/537.36","Ruta":"\/metro\/SGF\/Administrador\/controlador\/controlador.php"}
+[24-Mar-2025 00:06:15 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 16
+[24-Mar-2025 00:06:15 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 17
+[24-Mar-2025 00:06:15 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 18
+[24-Mar-2025 00:06:15 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 19
+[24-Mar-2025 00:06:15 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 20
+[24-Mar-2025 00:06:15 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 21
+[24-Mar-2025 00:06:15 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 22
+[24-Mar-2025 00:39:40 Europe/Berlin] ALERTA DE SEGURIDAD: Sesión expirada por inactividad | {"IP":"::1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.0.0 Safari\/537.36","Ruta":"\/metro\/SGF\/registrar_servicios\/subsistema\/controlador\/controlador_subsistema.php"}
+[24-Mar-2025 00:39:45 Europe/Berlin] ALERTA DE SEGURIDAD: Campo requerido faltante: Identificación de usuario | {"IP":"::1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.0.0 Safari\/537.36","Ruta":"\/metro\/SGF\/inicio\/controlador\/controlador_inicio.php"}
+[24-Mar-2025 00:39:46 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 16
+[24-Mar-2025 00:39:46 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 17
+[24-Mar-2025 00:39:46 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 18
+[24-Mar-2025 00:39:46 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 19
+[24-Mar-2025 00:39:46 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 20
+[24-Mar-2025 00:39:46 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 21
+[24-Mar-2025 00:39:46 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 22
+[24-Mar-2025 00:39:46 Europe/Berlin] ALERTA DE SEGURIDAD: Campo requerido faltante: Identificación de usuario | {"IP":"::1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.0.0 Safari\/537.36","Ruta":"\/metro\/SGF\/personal\/controlador\/controladordepersonal.php"}
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 7
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 7
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 16
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Attempt to read property "nombre_personal" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 16
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 17
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Attempt to read property "nombre_perfil" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 17
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 18
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Attempt to read property "usuario" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 18
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 19
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Attempt to read property "id_usuario" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 19
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 20
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Attempt to read property "carnet" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 20
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 21
+[24-Mar-2025 00:40:51 Europe/Berlin] PHP Warning:  Attempt to read property "nombre_servicio" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 21
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 16
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Attempt to read property "nombre_personal" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 16
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 17
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Attempt to read property "nombre_perfil" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 17
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 18
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Attempt to read property "usuario" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 18
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 19
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Attempt to read property "id_usuario" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 19
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 20
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Attempt to read property "carnet" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 20
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Undefined variable $datosUsuario in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 21
+[24-Mar-2025 00:42:16 Europe/Berlin] PHP Warning:  Attempt to read property "nombre_servicio" on null in C:\xampp\htdocs\metro\SGF\registrar_servicios\servicios\controlador\controlador_servicios.php on line 21
+[24-Mar-2025 00:46:08 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 16
+[24-Mar-2025 00:46:08 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 17
+[24-Mar-2025 00:46:08 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 18
+[24-Mar-2025 00:46:08 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 19
+[24-Mar-2025 00:46:08 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 20
+[24-Mar-2025 00:46:08 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 21
+[24-Mar-2025 00:46:08 Europe/Berlin] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\metro\SGF\logout\auth.php on line 22
+[29-Mar-2025 22:42:49 Europe/Berlin] ALERTA DE SEGURIDAD: Campo requerido faltante: Identificación de usuario | {"IP":"::1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.0.0 Safari\/537.36","Ruta":"\/metro\/SGF\/Administrador\/controlador\/controlador.php"}
+[29-Mar-2025 23:02:11 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\metro\SGF\logout\controlador_logout.php on line 3
+[29-Mar-2025 23:03:12 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\metro\SGF\logout\controlador_logout.php on line 3
+[09-Apr-2025 00:00:24 Europe/Berlin] ALERTA DE SEGURIDAD: Campo requerido faltante: Identificación de usuario | {"IP":"::1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/135.0.0.0 Safari\/537.36","Ruta":"\/metro\/SGF\/inicio\/controlador\/controlador_inicio.php"}
+[09-Apr-2025 00:58:20 Europe/Berlin] ALERTA DE SEGURIDAD: Sesión expirada por inactividad | {"IP":"::1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/135.0.0.0 Safari\/537.36","Ruta":"\/metro\/SGF\/reporte\/controlador\/controlador_consulta.php"}
+[21-Apr-2025 17:00:26 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:00:26 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:00:36 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:00:36 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:00:40 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:00:40 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:01:34 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:01:34 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:01:36 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:01:36 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:01:55 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:01:55 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\ambiente\controlador\controlador_ambiente.php on line 6
+[21-Apr-2025 17:05:50 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\ubicacion\controlador\controlador_ubicacion.php on line 5
+[21-Apr-2025 17:05:50 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\ubicacion\controlador\controlador_ubicacion.php on line 5
+[21-Apr-2025 17:05:55 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\ubicacion\controlador\controlador_ubicacion.php on line 5
+[21-Apr-2025 17:05:55 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\ubicacion\controlador\controlador_ubicacion.php on line 5
+[21-Apr-2025 17:05:56 Europe/Berlin] PHP Warning:  include_once(C:/xampp/htdocs/metro/SGF/controlador_usuario.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\metro\SGF\registrar_servicios\ubicacion\controlador\controlador_ubicacion.php on line 5
+[21-Apr-2025 17:05:56 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'C:/xampp/htdocs/metro/SGF/controlador_usuario.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\metro\SGF\registrar_servicios\ubicacion\controlador\controlador_ubicacion.php on line 5
+[22-Apr-2025 22:17:40 Europe/Berlin] ALERTA DE SEGURIDAD: Campo requerido faltante: Identificación de usuario | {"IP":"::1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/135.0.0.0 Safari\/537.36","Ruta":"\/metro\/SGF\/registrar_servicios\/subsistema\/controlador\/controlador_subsistema.php"}
+[22-Apr-2025 22:17:40 Europe/Berlin] ALERTA DE SEGURIDAD: Campo requerido faltante: Identificación de usuario | {"IP":"::1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/135.0.0.0 Safari\/537.36","Ruta":"\/metro\/SGF\/inicio\/controlador\/controlador_inicio.php"}

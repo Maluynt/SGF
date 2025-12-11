@@ -1,12 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario_id'])) {
-    die('Acceso denegado');
-}
-
-require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/reporte/vendor/autoload.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/reporte/modelo/modelo_consulta.php';
-
+// Incluir el archivo de conexión primero
+include_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/conexion/conexion_bd.php'; // Ajusta la ruta según tu estructura
 use Dompdf\Dompdf;
 
 $model = new FallaModel($pdo);
@@ -40,7 +37,7 @@ $allowedFields = [
 
 // Generar HTML para PDF
 ob_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/consulta/vista/pdf_template.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/reporte/vista/pdf_templates.php';
 $html = ob_get_clean();
 
 $dompdf = new Dompdf();
@@ -48,4 +45,9 @@ $dompdf->loadHtml($html);
 $dompdf->setPaper('A4', 'landscape');
 $dompdf->render();
 
-$dompdf->stream("reporte_fallas_".date('Ymd').".pdf");
+
+
+// Cambiar el stream para abrir en navegador
+$dompdf->stream("reporte_fallas_".date('Ymd').".pdf", array("Attachment" => 0));
+
+

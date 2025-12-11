@@ -1,50 +1,58 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-session_start();
 // controlador_inicio.php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-require_once __DIR__ . '../../../conexion/conexion_bd.php';
-require_once __DIR__ . '/../modelo/modelo_usuario.php';
+declare(strict_types=1);
 
-// Verificar autenticación
-if (!isset($_SESSION['id_usuario'])) {
-    header('Location: ../../../../login/index.php');
-    exit();
-}
+// 1. Configuración inicial
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+$esVistaSegura = true; // Define la bandera de seguridad
+// 2. Autenticación
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/logout/auth.php';
+verificarAutenticacion();
 
-// Obtener conexión y modelo
 
-$modelo = new ModeloUsuario($pdo);
+try {
+    // 3. Conexión a BD
+    require_once __DIR__ . '/../../conexion/conexion_bd.php';
+    
+    // 4. Modelo
+    require_once __DIR__ . '/../modelo/modelo_usuario.php';
+    $modeloUsuario = new ModeloUsuario($pdo);
 
-// Obtener y procesar datos
-$datosUsuario = $modelo->obtenerInformacionUsuario($_SESSION['id_usuario']);
+    // 5. Datos del usuario
+    if (!isset($_SESSION['id_usuario'])) {
+        throw new Exception("Sesión no válida");
+    }
+    
+    $datosUsuario = $modeloUsuario->obtenerInformacionUsuario((int)$_SESSION['id_usuario']);
 
-// Mapear datos para la vista
-// Mapear datos para la vista
+    if (!$datosUsuario) {
+        throw new Exception("Usuario no encontrado");
+    }
+
+    // 6. Cargar vista
+   // Línea 38 (versión corregida)
 $informacionUsuario = [
-    'nombre' => $datosUsuario->nombre_personal,
-    'perfil' => $datosUsuario->nombre_perfil, // Cambié la clave
-    'id_perfil' => $datosUsuario->id_perfil, // Cambié la clave
-    'usuario' => $datosUsuario->usuario,
-    'carnet' => $datosUsuario->carnet,
-    'servicio' => $datosUsuario->nombre_servicio
+    'nombre' => htmlspecialchars((string) $datosUsuario->nombre_personal),
+    'nombre_perfil' => htmlspecialchars((string) $datosUsuario->nombre_perfil),
+    'id_perfil' => (int) $datosUsuario->id_perfil, // No necesita htmlspecialchars
+    'usuario' => htmlspecialchars((string) $datosUsuario->usuario),
+    'carnet' => htmlspecialchars((string) $datosUsuario->carnet),
+    'servicio' => htmlspecialchars((string) $datosUsuario->nombre_servicio)
 ];
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/metro/SGF/consulta/controlador/controlador_consulta.php';
+    include __DIR__ . '/../vista/vista_inicio.php';
 
-// Definir constante BASE_URL (debe apuntar al root del proyecto)
-define('BASE_URL', 'http://localhost/metro/SGF/');
-
-// Cargar vista
-
-include __DIR__ . '/../vista/vista_inicio.php'; // Cambia esto a la ruta deseada
-exit();
+} catch (PDOException $e) {
+    die("Error de base de datos: " . $e->getMessage());
+} catch (Exception $e) {
+    die("Error: " . $e->getMessage());
+}
 
 
 
-    // Redirigir o realizar otra acción después de almacenar el id_servicio
-   
+
+
+

@@ -32,29 +32,26 @@ class Modelo
   
     public function obtenerServicio($id_servicio = null) {
         try {
+            $nombre_servicio = '';
             if ($id_servicio) {
-                // Primero obtener el nombre del servicio usando el ID
                 $stmt = $this->pdo->prepare("SELECT nombre_servicio FROM servicio WHERE id_servicio = :id_servicio");
                 $stmt->execute(['id_servicio' => $id_servicio]);
                 $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-                // Si el nombre es "Administrador", obtener todos los servicios
-                if ($resultado && $resultado['nombre_servicio'] === 'Administrador') {
-                    $query = $this->pdo->prepare("SELECT * FROM servicio");
-                    $query->execute();
-                } else {
-                    // Si no, obtener solo el servicio del ID proporcionado
-                    $query = $this->pdo->prepare("SELECT * FROM servicio WHERE id_servicio = :id_servicio");
-                    $query->execute(['id_servicio' => $id_servicio]);
-                }
-            } else {
-                // Si no hay ID, obtener todos los servicios
-                $query = $this->pdo->prepare("SELECT * FROM servicio");
-                $query->execute();
+                $nombre_servicio = $resultado['nombre_servicio'] ?? '';
             }
-            return $query->fetchAll(PDO::FETCH_ASSOC) ?: [];
+    
+            if ($nombre_servicio === 'Administrador') {
+                $query = $this->pdo->query("SELECT * FROM servicio");
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            } elseif ($id_servicio) {
+                $query = $this->pdo->prepare("SELECT * FROM servicio WHERE id_servicio = :id_servicio");
+                $query->execute(['id_servicio' => $id_servicio]);
+                return $query->fetchAll(PDO::FETCH_ASSOC);
+            } else {
+                return [];
+            }
         } catch (PDOException $e) {
-            error_log("Error al obtener servicios: " . $e->getMessage());
+            error_log("Error en obtenerServicio: " . $e->getMessage());
             return [];
         }
     }
@@ -83,16 +80,17 @@ class Modelo
         date_default_timezone_set("America/Caracas");
         $año = date('Y');
         $mes = date('m');
-        $contador = 1;
+        $dia = date('d');
+        $prefix = $año . $mes . $dia;
 
-        $stmt = $this->pdo->prepare("SELECT id_falla FROM falla WHERE id_falla::text LIKE :id_falla");
-        $stmt->execute(['id_falla' => "$año$mes%"]);
+        $stmt = $this->pdo->prepare("SELECT id_falla FROM falla WHERE id_falla::text LIKE :prefix");
+        $stmt->execute(['prefix' => "$prefix%"]);
+        $rows = $stmt->fetchAll();
 
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $contador++;
-        }
+        $contador = count($rows) + 1;
+        $sequence = str_pad($contador, 2, '0', STR_PAD_LEFT);
 
-        return "$año$mes" . str_pad($contador, 3, '0', STR_PAD_LEFT);
+        return $prefix . $sequence;
     }
 
     public function obtenerAmbientes($id_ubicacion)
@@ -176,6 +174,25 @@ class Modelo
             'id_personal' => $id_personal,
             'fecha_reporte' => $fecha_hora
         ]);
+    }
+    public function beginTransaction() {
+        return $this->pdo->beginTransaction();
+    }
+    
+    public function commit() {
+        return $this->pdo->commit();
+    }
+    
+    public function rollBack() {
+        return $this->pdo->rollBack();
+    }
+    
+    public function inTransaction() {
+        return $this->pdo->inTransaction();
+    }
+    
+    public function lastInsertId() {
+        return $this->pdo->lastInsertId();
     }
 }
 

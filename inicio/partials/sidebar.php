@@ -1,3 +1,9 @@
+<?php
+// En la primera línea de header.php
+if (!defined('INCLUIDO_SEGURO')) {
+    die('Acceso directo no permitido');
+}
+?>
 <nav class="sidebar bg-dark">
     <div class="sidebar-header">
         <h4 class="text-white mb-0"><strong>Menú Principal</strong></h4>
@@ -13,14 +19,27 @@
                     </div>
                     <i class="dropdown-icon"></i>
                 </div>
+
+
+
                 <div class="user-details">
-                <p class="m-1"><strong>Nombre:</strong> <?= htmlspecialchars($informacionUsuario['nombre'] ?? 'No disponible') ?></p>
-                <p class="m-1"><strong>Nombre:</strong> <?= htmlspecialchars($informacionUsuario['perfil'] ?? 'No disponible') ?></p>
-                <p class="m-1"><strong>Nombre:</strong> <?= htmlspecialchars($informacionUsuario['carnet'] ?? 'No disponible') ?></p>
-                <p class="m-1"><strong>Nombre:</strong> <?= htmlspecialchars($informacionUsuario['servicio'] ?? 'No disponible') ?></p>
-                </div>
+    <p class="m-1"><strong>Nombre:</strong> <?= htmlspecialchars($_SESSION['nombre_personal'] ?? 'No disponible') ?></p>
+    <p class="m-1"><strong>Perfil:</strong> <?= htmlspecialchars($_SESSION['nombre_perfil'] ?? 'No disponible') ?></p>
+    <p class="m-1"><strong>Carnet:</strong> <?= htmlspecialchars($_SESSION['carnet'] ?? 'No disponible') ?></p>
+    <p class="m-1"><strong>Servicio:</strong> <?= htmlspecialchars($_SESSION['nombre_servicio'] ?? 'No disponible') ?></p>
+    
+  
+        <a href="/metro/SGF/usuarios/controlador/controlador_registrar_usuario.php" class="submenu-item">
+            <strong>NUEVO USUARIO</strong>
+        </a>
+   
+</div>
+
+
             </div>
         </div>
+
+    
 
         <div class="menu-section">
             <div class="menu-item registry-menu">
@@ -32,21 +51,29 @@
                     <i class="dropdown-icon"></i>
                 </div>
                 <div class="submenu">
-                <a href="/metro/SGF/abrir/controlador/Controlador.php" class="submenu-item"><strong>Abrir falla</strong></a>
-                    <a href="/metro/SGF/personal/index.php" class="submenu-item"><strong>Personal</strong></a>
+                    <a href="/metro/SGF/abrir/controlador/Controlador.php" class="submenu-item"><strong>Abrir falla</strong></a>
+                    <a href="/metro/SGF/personal/controlador/controladordepersonal.php" class="submenu-item"><strong>Personal</strong></a>
                     <a href="/metro/SGF/registrar_servicios/servicios/controlador/controlador_servicios.php" class="submenu-item"><strong>Servicios</strong></a>
                     <a href="/metro/SGF/registrar_servicios/subsistema/controlador/controlador_subsistema.php" class="submenu-item"><strong>Subsistemas</strong></a>
                     <a href="/metro/SGF/registrar_servicios/equipo/controlador/controlador_equipo.php" class="submenu-item"><strong>Equipos</strong></a>
                     <a href="/metro/SGF/registrar_servicios/ubicacion/controlador/controlador_ubicacion.php" class="submenu-item"><strong>ubicacion</strong></a>
                     <a href="/metro/SGF/registrar_servicios/ambiente/controlador/controlador_ambiente.php" class="submenu-item"><strong>Ambiente</strong></a>
-                    <a href="/metro/SGF/consulta/controlador/controlador_consulta.php" class="submenu-item"><strong>Consulta</strong></a>
                 </div>
             </div>
         </div>
-
-        <a href="#" class="menu-item"><strong>Descargas</strong></a>
+        <h5><a href="/metro/SGF/inicio/controlador/controlador_inicio.php" class="menu-item"><strong>Inicio</strong></a></h5>
+        <h5><a href="/metro/SGF/consulta/controlador/controlador_consulta.php" class="menu-item"><strong>Consulta</strong></a></h5>
+        <a href="/metro/SGF/reporte/controlador/controlador_consulta.php" class="menu-item"><strong>Reportes</strong></a>
+        <?php if (isset($_SESSION['nombre_perfil']) && in_array($_SESSION['nombre_perfil'], ['ADMINISTRADOR', 'Inspector'], true)): ?>
+    <a href="/metro/SGF/estadistica/controlador/controlador_consulta.php" class="menu-item">
+        <strong>Estadística</strong>
+    </a>
+<?php endif; ?>
         <a href="#" class="menu-item"><strong>Historial</strong></a>
         <a href="#" class="menu-item"><strong>Ayuda</strong></a>
-        <a href="../../login/index.php" class="menu-item logout-btn"><strong>Salir</strong></a>
+        
+        <a href="/metro/SGF/logout/controlador_logout.php" class="menu-item logout-btn">
+            <strong>Salir</strong>
+        </a>
     </div>
 </nav>
